@@ -1,0 +1,9 @@
+<br><br><br><br>
+<% @users.each do |u| %>
+    Username: <%= u.username %>
+        <% if u.admin? %>
+        <%= mail_to u.email, "(Admin)" %>
+    <% end %>
+    <br>Favorite Schlock Flop: <i><%= u.best_worst_movie %></i><br><br>
+
+<% end %>
