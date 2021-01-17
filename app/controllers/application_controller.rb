@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
+    rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
     include ApplicationHelper
 
     def verified_user
@@ -14,5 +15,12 @@ class ApplicationController < ActionController::Base
         params.require(:user).permit(:username, :email, :password, :best_worst_movie, :avatar, :admin)
     end
 
-    
+    def handle_record_not_found
+        # Send it to the view that is specific for Post not found
+        render :not_found
+    end
+
+    private
+
+
 end

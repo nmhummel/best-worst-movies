@@ -7,9 +7,10 @@
 
 <table>
  <tr>
-     <td>
-        <%= current_user.avatar %>
-     </td>
+      <% if @user.avatar.attached? %>
+         <td> <%= image_tag url_for(@user.avatar.variant(resize: “300X100”)) %></td>
+      <%end%>
+
      <td>
         Username: <%= current_user.username %><br>
         Email: <%= current_user.email %><br>

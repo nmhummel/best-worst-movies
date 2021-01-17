@@ -5,9 +5,14 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
 
-  delete '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :rankings
+  # movies/4/rankings/new
+  resources :movies do
+    resources :rankings, shallow: true
+  end
+
+  # resources :rankings
   resources :users
   resources :movies
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -9,11 +9,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.new(user_params)
-        if user.save
+        @user = User.new(user_params)
+        if @user.save
          # if (user = User.create(user_params))
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+            session[:user_id] = @user.id
+            @user.image.purge
+            @user.image.attach(params[:user][:image])
+            redirect_to user_path(@user)
           else
             render :new
           end

@@ -9,16 +9,19 @@ class MoviesController < ApplicationController
     end
 
     def create
-        @movie = Movie.create(movie_params)
+        @movie = Movie.new(movie_params)
         if @movie.save
+            @movie.image.purge
+            @movie.image.attach(params[:movie][:image])
             redirect_to movie_path(:id)
         else
             render :new
         end
     end
 
+
     def show
-        @movie = Movie.find("id")
+        @movie = Movie.find_by_id(params[:id])
     end
 
     def edit
@@ -37,7 +40,7 @@ class MoviesController < ApplicationController
     private
 
     def movie_params
-        params.require(:movie).permit(:title, :genre, :rating, :year, :poster, :user_id)
+        params.require(:movie).permit(:title, :genre, :rating, :year, :poster, :user_id, :image)
     end
 
     def upload
@@ -46,5 +49,6 @@ class MoviesController < ApplicationController
           file.write(uploaded_file.read)
         end
     end
+
 
 end

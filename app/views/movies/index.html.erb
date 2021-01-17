@@ -10,10 +10,10 @@
         <%= m.title %><br>
         <%= m.genre %><br>
         <%= m.rating %><br>
-        <%= m.year %><br>     
+        <%= m.year %><br>
+        <%= link_to "Rank #{m.title}", new_movie_ranking_path(m.id) %>     
         <% end %>
      </td>
   </tr>
-   
 
 </table>
