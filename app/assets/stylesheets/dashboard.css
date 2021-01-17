@@ -1,5 +1,6 @@
 body {
   font-size: .875rem;
+  padding-top: 5rem;
 }
 
 .feather {
@@ -11,6 +12,7 @@ body {
 main > .container {
   padding: 60px 15px 0;
 }
+
 
 /*
  * Sidebar
