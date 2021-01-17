@@ -15,15 +15,15 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect_to user_path(user)
           else
-            render 'new'
+            render :new
           end
       end
 
     def show
         if user_is_authenticated
-         @user = User.find_by(current_user)
+          @user = User.find_by_id(params[:id])
         else
-         redirect_to root_path
+          redirect_to '/'
         end
     end
 

@@ -2,12 +2,12 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     include ApplicationHelper
 
-    def current_user
-        current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+    def verified_user
+        redirect_to '/' unless user_is_authenticated
     end
-
-    def user_is_authenticated
-        !!current_user
+    
+    def require_login
+        return redirect_to(controller: 'session', action: 'new') unless user_is_authenticated
     end
 
     def user_params

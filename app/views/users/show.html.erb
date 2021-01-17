@@ -1,0 +1,25 @@
+<% if flash[:message] %>
+    <%= flash[:message]%>
+<% end %>
+<% if current_user && current_user.admin %>
+    <p><b>Welcome, ADMIN</b></p>
+<% end %>
+
+<table>
+ <tr>
+     <td>
+        <%= current_user.avatar %>
+     </td>
+     <td>
+        Username: <%= current_user.username %><br>
+        Email: <%= current_user.email %><br>
+        Favorite Schlock Flop: <%= current_user.best_worst_movie %><br>
+     </td>
+  </tr>
+</table>
+
+
+<br><br>
+<%= link_to "View All Movies", movies_path %> || <%= link_to "Add Movie", new_movie_path %> || <%= link_to "See All Users", users_path %>
+<br><br>
+<%= button_to "Logout", logout_path, method: 'delete' %>

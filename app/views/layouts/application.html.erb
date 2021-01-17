@@ -14,7 +14,45 @@
   </head>
 
   <body>
-    <%= yield %>
+
+     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+
+     <%if user_is_authenticated && current_user.admin %>
+        <h4> ADMIN </h4>
+      <% end %>
+
+        <div class="navbar-header">          
+        <a class="navbar-brand" href="/">Home</a>
+        <% if !current_user %>
+          <a class="navbar-brand" href="<%= new_user_path %>">Sign Up</a>
+          <%= button_to "Log in", login_path, class:"navbar-brand" %>
+        <% end %>
+        <% if current_user %>
+          <%= button_to "#{current_user.username}'s profile", user_path(current_user), class:"navbar-brand"%>
+          <%= button_to "Logout", logout_path, method: 'delete', class:"navbar-brand" %>
+        <% end %>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- content -->
+     <% flash.each do |type, message| %>
+        <div>
+          <%= message %>
+        </div>
+      <% end %>
+
+    <div class="container"  role="main">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
 

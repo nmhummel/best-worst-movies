@@ -1,0 +1,16 @@
+<h1><%= @ranking.movie.title %>'s Page</h1>
+
+<table>
+ <tr>
+     <td>
+        <%= @ranking.movie.poster%>
+     </td>
+     <td>
+        Title: <%= @ranking.movie.title %><br>
+        Genre: <%= @ranking.movie.genre %><br>
+        Rating: <%= @ranking.movie.rating %><br>
+        Year Released: <%= @ranking.movie.year %><br>  
+        Created By: <%= @ranking.movie.user.username %>
+     </td>
+  </tr>
+</table>

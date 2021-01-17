@@ -1,0 +1,19 @@
+<h1>All Movies</h1>
+
+<table>
+ <tr>
+     <td>
+     <% @movies.each do |m| %>
+        <%= m.poster%>
+     </td>
+     <td>
+        <%= m.title %><br>
+        <%= m.genre %><br>
+        <%= m.rating %><br>
+        <%= m.year %><br>     
+        <% end %>
+     </td>
+  </tr>
+   
+
+</table>

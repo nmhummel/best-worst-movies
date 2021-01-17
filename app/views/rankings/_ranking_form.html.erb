@@ -1,0 +1,35 @@
+
+<%= form_with model: @ranking do |f| %>
+    <%= f.hidden_field :movie_id%>
+    
+    <%= f.label :editing %>
+    <%= f.number_field :editing %><br>
+    <br>
+    <%= f.label :cinematography %>
+    <%= f.number_field :cinematography %><br>
+    <br>
+    <%= f.label :acting %>
+    <%= f.number_field :acting %><br>
+    <br>
+    <%= f.label :special_effects %>
+    <%= f.number_field :special_effects %><br>
+    <br>
+    <%= f.label :sound %>
+    <%= f.number_field :sound %><br>
+    <br>
+    <%= f.label :plot %>
+    <%= f.number_field :plot %><br>
+    <br>
+    <%= f.label :effort %>
+    <%= f.number_field :effort %><br>
+    <br>
+    <%= f.label :watch_again %>
+    <%= f.check_box :watch_again, {}, true %><br>
+    <br>
+    <%= f.label :comments %>
+    <%= f.number_field :comments %><br>
+    <br>
+    <%= f.submit %>
+<% end %>
+
+   

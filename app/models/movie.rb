@@ -3,3 +3,10 @@ class Movie < ApplicationRecord
     has_many :rankings
 
 end
+
+
+# def user
+# def user=
+# def build_user
+# def brand_id
+# def brand_id=

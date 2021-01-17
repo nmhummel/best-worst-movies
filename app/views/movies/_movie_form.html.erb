@@ -1,0 +1,21 @@
+
+<%= form_with model: @movie do |f| %>
+    <%= f.hidden_field :user_id%>
+    
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <br>
+    <%= f.label :genre %>
+    <%= f.text_field :genre %><br>
+    <br>
+    <%= f.label :rating %>
+    <%= f.text_field :rating %><br>
+    <br>
+    <%= f.label :year %>
+    <%= f.number_field :year %><br>
+    <br>
+    <%= f.label :poster %>
+    <%= f.file_field :poster %><br>
+    <br>
+    <%= f.submit %>
+<% end %>
