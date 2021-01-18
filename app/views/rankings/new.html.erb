@@ -1,7 +1,8 @@
 <h1>Add your Rankings for <%= @ranking.movie.title %> on a scale of 1-5 (5 being the worst)
 
+<%= render partial: 'layouts/errors', locals: {object: @ranking} %>
 <!-- make nested if/else at beginning? end of part 3 video -->
 
 <%= render 'ranking_form' %>
 
-<%= link_to 'Back', movie_path(@movie) %>
+

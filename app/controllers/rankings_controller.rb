@@ -19,7 +19,7 @@ class RankingsController < ApplicationController
     end
 
     def create
-        @ranking = @movie.ranking.build(ranking_params)
+        @ranking = Ranking.new(ranking_params)
         if @ranking.save
             redirect_to ranking_path(@ranking)
         else
@@ -39,7 +39,7 @@ class RankingsController < ApplicationController
     
     private
     def ranking_params
-        params.require(:ranking).permit(:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :movie_id)
+        params.require(:ranking).permit(:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :movie_id, :user_id)
     end
 
 

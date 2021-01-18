@@ -1,5 +1,7 @@
 <h1>Add a movie to the database:</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @movie} %>
+
 <%= render 'movie_form' %>
 
 <%= link_to 'Back', movies_path %>

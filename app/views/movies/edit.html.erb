@@ -1,6 +1,7 @@
 <h1>Edit your movie in the database:</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @movie} %>
+
 <%= render 'movie_form' %>
 
-<%= link_to 'Show', @movie %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Show', @movie %> || <%= link_to 'Back', movies_path %>
