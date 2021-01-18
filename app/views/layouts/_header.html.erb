@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+
+      <%= link_to "Movie Reviews", '/', class: "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li><%= link_to "New Movie", new_movie_path, class: "active" %></li>
+          <li><%= link_to "#{current_user.username}'s profile", user_path(current_user), class:"navbar-brand"%></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_user_path, class: "active" %></li>
+          <li><%= link_to "Log In", login_path, class: "active" %></li>
+        <% end %>
+      </ul>
+      
+     
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,17 +1,19 @@
-<h1><%= @ranking.movie.title %>'s Page</h1>
+<h1><%= @movie.title %>'s Page</h1>
 
 <table>
  <tr>
-      <% if @ranking.movie.poster.attached? %>
-         <td> <%= image_tag url_for(@ranking.movie.poster.variant(resize: “300X100”)) %></td>
+      <% if @movie.poster.attached? %>
+         <td> <%= image_tag(@movie.poster, :size => '150x200') %></td>
+      <%else%>
+         <td> <%= image_tag("the-title.jpg", :size => '150x200') %></td>
       <%end%>
 
      <td>
-        Title: <%= @ranking.movie.title %><br>
-        Genre: <%= @ranking.movie.genre %><br>
-        Rating: <%= @ranking.movie.rating %><br>
-        Year Released: <%= @ranking.movie.year %><br>  
-        Created By: <%= @ranking.movie.user.username %>
+        Title: <%= @movie.title %><br>
+        Genre: <%= @movie.genre %><br>
+        Rating: <%= @movie.rating %><br>
+        Year Released: <%= @movie.year %><br>  
+        Created By: <%=  %>
      </td>
   </tr>
 </table>

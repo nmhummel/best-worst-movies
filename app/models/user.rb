@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :movies
-    has_many :rankings, through: :movies
+    has_many :rankings
+    has_many :movies, through: :rankings
     has_secure_password
     has_one_attached :avatar  #one associated image
     validates :password, presence: true

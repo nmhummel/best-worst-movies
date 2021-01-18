@@ -8,7 +8,9 @@
 <table>
  <tr>
       <% if @user.avatar.attached? %>
-         <td> <%= image_tag url_for(@user.avatar.variant(resize: “300X100”)) %></td>
+         <td> <%= image_tag(@user.avatar, :size => '75x75') %></td>
+         <% else %>
+         <td> <%= image_tag("tommy-wiseau.jpg", :size => '75x75') %> </td>
       <%end%>
 
      <td>

@@ -31,11 +31,11 @@ class UsersController < ApplicationController
 
     private 
 
-    def upload
-        uploaded_file = params[:avatar]
-        File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-          file.write(uploaded_file.read)
-        end
-    end
+    # def upload
+    #     uploaded_file = params[:avatar]
+    #     File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+    #       file.write(uploaded_file.read)
+    #     end
+    # end
 
 end

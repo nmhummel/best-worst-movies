@@ -6,8 +6,6 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.string :rating
       t.string :runtime
       t.string :genre
-      t.string :summary
-      t.binary :poster
       t.timestamps
     end
   end

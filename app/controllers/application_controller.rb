@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
     end
 
     def user_params
-        params.require(:user).permit(:username, :email, :password, :best_worst_movie, :avatar, :admin)
+        params.require(:user).permit(:username, :email, :password, :best_worst_movie, :admin, :avatar)
     end
 
     def handle_record_not_found
         # Send it to the view that is specific for Post not found
-        render :not_found
+        redirect_to 'not_found'
     end
 
     private

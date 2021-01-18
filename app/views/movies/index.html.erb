@@ -2,15 +2,17 @@
 
 <table>
  <tr>
-     <td>
      <% @movies.each do |m| %>
-        <%= m.poster%>
-     </td>
+      <% if m.poster.attached? %>
+         <td> <%= image_tag(m.poster, :size => '150x200') %></td>
+      <%else%>
+         <td> <%= image_tag("the-title.jpg", :size => '150x200') %></td>
+      <%end%>
      <td>
-        <%= m.title %><br>
-        <%= m.genre %><br>
-        <%= m.rating %><br>
-        <%= m.year %><br>
+        Title: <%= m.title %><br>
+        Genre: <%= m.genre %><br>
+        Rating: <%= m.rating %><br>
+        Year Released: <%= m.year %><br>
         <%= link_to "Rank #{m.title}", new_movie_ranking_path(m.id) %>     
         <% end %>
      </td>

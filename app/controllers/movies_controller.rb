@@ -5,27 +5,25 @@ class MoviesController < ApplicationController
     end
     
     def new
-        self.new_from_imdb(url)
+        @movie = Movie.new
     end
 
     def create
         @movie = Movie.new(movie_params)
         if @movie.save
-            @movie.image.purge
-            @movie.image.attach(params[:movie][:image])
             redirect_to movie_path(:id)
         else
             render :new
         end
     end
 
-
     def show
-        @movie = Movie.find_by_id(params[:id])
+        #byebug
+        @movie = Movie.find(params[:id])
     end
 
     def edit
-        @movie = Movie.find(params[:movie][:id])
+        @movie = Movie.find(params[:id])
         @ranking = @movie.rankings.build(user_id: current_user.id) #????
         
     end
@@ -41,15 +39,9 @@ class MoviesController < ApplicationController
     private
 
     def movie_params
-        params.require(:movie).permit(:title, :genre, :rating, :year, :poster, :user_id, :image)
+        params.require(:movie).permit(:title, :year, :rating, :runtime, :genre, :summary, :poster)
     end
 
-    def upload
-        uploaded_file = params[:poster]
-        File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-          file.write(uploaded_file.read)
-        end
-    end
-
+ 
 
 end

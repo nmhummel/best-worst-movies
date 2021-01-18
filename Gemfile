@@ -25,14 +25,16 @@ gem 'bootstrap', '~> 5.0.0.beta1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem "aws-sdk-s3", require: false
+#gem "aws-sdk-s3", require: false
 
 gem "mini_magick"
 #image thumbnails
 
+gem 'roo'
+#spreadsheet
+
 gem 'nokogiri'
 gem 'open-uri'
-gem 'kimurai'
 #web scraping
 
 # Reduces boot times through caching; required in config/boot.rb
