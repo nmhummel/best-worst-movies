@@ -1,22 +1,72 @@
-<h1><%= @movie.title %>'s Page</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+            <% if @movie.poster.attached? %>
+               <%= image_tag(@movie.poster, :size => '150x200') %>
+            <%else%>
+               <%= image_tag("the-title.jpg", :size => '150x200') %>
+            <%end%>
+         <div class="table-responsive">
+            <table class="table">
+            <tbody>
+               <tr>
+                  <td><strong>Title:</strong></td>
+                  <td><%= @movie.title %></td>
+               </tr>
+                  <tr>
+                  <td><strong>Genre:</strong></td>
+                  <td><%= @movie.genre %></td>
+               </tr>
+                  <tr>
+                  <td><strong>Rating:</strong></td>
+                  <td><%= @movie.rating %></td>
+               </tr>
+                  <tr>
+                  <td><strong>Year:</strong></td>
+                  <td><%= @movie.year %></td>
+               </tr>
+               <tr>
+                  <td><strong>Created by:</strong></td>
+                  <td>   </td>
+               </tr>
+               </tbody>
+            </table>
+          <%= link_to "Rank this Movie", new_movie_ranking_path(@movie) %>
+        </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @movie.title %></h1>
+        <p>  </p>
 
-<table>
- <tr>
-      <% if @movie.poster.attached? %>
-         <td> <%= image_tag(@movie.poster, :size => '150x200') %></td>
-      <%else%>
-         <td> <%= image_tag("the-title.jpg", :size => '150x200') %></td>
-      <%end%>
+        <% if @rankings.blank? %>
+          <h3>No rankings just yet, would you like to add the first?</h3>
+          <%= link_to "Rank this Flop", new_movie_ranking_path(@movie), class: "btn btn-danger" %>
+        <% else %>
 
-     <td>
-        Title: <%= @movie.title %><br>
-        Genre: <%= @movie.genre %><br>
-        Rating: <%= @movie.rating %><br>
-        Year Released: <%= @movie.year %><br>  
-        Created By: <%=  %>
-     </td>
-  </tr>
-</table>
+          <% @rankings.each do |ranking| %>
+            <div class="rankings">
+              <div class="star-rating" data-score= <%= ranking.rating %> ></div>
+              <p><%= ranking.comment %></p>
+            </div>
+          <% end %>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2> Rank this movie</h2>
-<!-- add rankings -->
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
+

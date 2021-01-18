@@ -1,4 +1,11 @@
-<h1>All Movies</h1>
+<% if !current_user %>
+  <div class="jumbotron">
+    <h1>Your Favorite Movies Reviewed</h1>
+    
+    <p><%= link_to "Sign Up To Write A Review", signup_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
 
 <table>
  <tr>
