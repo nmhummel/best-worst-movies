@@ -1,6 +1,3 @@
-<% if flash[:message] %>
-    <%= flash[:message]%>
-<% end %>
 <% if current_user && current_user.admin %>
     <p><b>Welcome, ADMIN</b></p>
 <% end %>
@@ -16,7 +13,7 @@
      <td>
         Username: <%= current_user.username %><br>
         Email: <%= current_user.email %><br>
-        Favorite Schlock Flop: <%= current_user.best_worst_movie %><br>
+        Favorite Schlock Flop: <i><%= current_user.best_worst_movie %></i><br>
      </td>
   </tr>
 </table>
