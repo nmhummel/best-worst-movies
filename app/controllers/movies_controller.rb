@@ -27,6 +27,7 @@ class MoviesController < ApplicationController
     def edit
         @movie = Movie.find(params[:movie][:id])
         @ranking = @movie.rankings.build(user_id: current_user.id) #????
+        
     end
 
     def update

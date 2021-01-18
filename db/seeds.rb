@@ -22,6 +22,11 @@ DATA = {
       ["DaffyDaphne", "daffy@daphne.com", "password", "A Talking Cat!?!", "", "true"],
       ["TonyMontana", "tony@montana.com", "password", "Uninvited", "", "true"]
     ],
+    :movie_keys =>
+    ["title", "genre", "rating", "year"],
+    :movies => [
+      [""]
+    ]
   }
   
   def make_users

@@ -11,6 +11,7 @@ class CreateRankings < ActiveRecord::Migration[6.1]
       t.boolean :watch_again, default: false
       t.text :comments
       t.integer :movie_id
+      t.integer :user_id
 
       t.timestamps
     end
