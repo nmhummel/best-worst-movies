@@ -2,7 +2,6 @@
   <% if @ranking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ranking.errors.count, "error") %> prohibited this ranking from being saved:</h2>
-
       <ul>
       <% @ranking.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,16 +10,50 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <div id="star-rating"></div>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.hidden_field :movie_id%>  
+  <%= f.hidden_field :user_id%>      
+    <div class="field">
+        <div id="star-rating">  </div>
+    </div>
+    <div class="field">
+        <%= f.label :editing %>
+        <%= f.number_field :editing %>
+    </div>
+    <div class="field">
+        <%= f.label :cinematography %>
+        <%= f.number_field :cinematography %>
+    </div>
+    <div class="field">
+        <%= f.label :acting %>
+        <%= f.number_field :acting %>
+    </div>
+    <div class="field">
+        <%= f.label :special_effects %>
+        <%= f.number_field :special_effects %>
+    </div>
+    <div class="field">
+        <%= f.label :sound %>
+        <%= f.number_field :sound %>
+    </div>
+    <div class="field">
+        <%= f.label :plot %>
+        <%= f.number_field :plot %>
+    </div>
+    <div class="field">
+        <%= f.label :effort %>
+        <%= f.number_field :effort %>
+    </div>
+    <div class="field">
+        <%= f.label :watch_again %>
+        <%= f.check_box :watch_again, {}, true %>
+    </div>
+    <div class="field">
+        <%= f.label :comments %>
+        <%= f.text_area :comments, size: "35x5" %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
 <% end %>
 
 <script>

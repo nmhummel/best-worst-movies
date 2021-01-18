@@ -1,36 +1,7 @@
 <h1>Add your Rankings for <%= @ranking.movie.title %> on a scale of 1-5 (5 being the worst)
-<br><br>
-<%= form_for(@ranking) do |f| %>
-    <%= f.hidden_field :movie_id%>
-    
-    <%= f.label :editing %>
-    <%= f.number_field :editing %><br>
-    <br>
-    <%= f.label :cinematography %>
-    <%= f.number_field :cinematography %><br>
-    <br>
-    <%= f.label :acting %>
-    <%= f.number_field :acting %><br>
-    <br>
-    <%= f.label :special_effects %>
-    <%= f.number_field :special_effects %><br>
-    <br>
-    <%= f.label :sound %>
-    <%= f.number_field :sound %><br>
-    <br>
-    <%= f.label :plot %>
-    <%= f.number_field :plot %><br>
-    <br>
-    <%= f.label :effort %>
-    <%= f.number_field :effort %><br>
-    <br>
-    <%= f.label :watch_again %>
-    <%= f.check_box :watch_again, {}, true %><br>
-    <br>
-    <%= f.label :comments %><br>
-    <%= f.text_area :comments, size: "10x35"%><br>
-    <br>
-    <%= f.submit %>
-<% end %>
 
 <!-- make nested if/else at beginning? end of part 3 video -->
+
+<%= render 'ranking_form' %>
+
+<%= link_to 'Back', movie_path(@movie) %>

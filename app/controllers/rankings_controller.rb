@@ -1,5 +1,15 @@
 class RankingsController < ApplicationController
-# ranking belongs to movie
+    # ranking belongs to movie
+
+    def index
+        if params[:movie_id] #nested
+            @movie = Movie.find_by_id(params[:movie_id])
+            @review = @movie.rankings
+        else #not nested
+            @rankings = Ranking.all
+        end
+    end
+
     def new
         if @movie = Movie.find_by_id(params[:movie_id])
             @ranking = @movie.rankings.build
@@ -9,7 +19,7 @@ class RankingsController < ApplicationController
     end
 
     def create
-        @ranking = current_user.rankings.build(ranking_params)
+        @ranking = @movie.ranking.build(ranking_params)
         if @ranking.save
             redirect_to ranking_path(@ranking)
         else
@@ -21,13 +31,7 @@ class RankingsController < ApplicationController
     #     @ranking = Ranking.find_by_id(params[:id])
     # end
 
-    def index
-        if params[:movie_id] #nested
-            @movie = Movie.find_by_id(params[:movie_id])
-            @review = @movie.rankings
-        else #not nested
-        @rankings = Ranking.all
-    end
+
 
     # def edit
     #     redirect_to ranking_path
