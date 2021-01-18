@@ -1,21 +1,39 @@
-
 <%= form_with model: @movie do |f| %>
+
+    <% if @movie.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+        <ul>
+         <% @movie.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+            <% end %>
+         </ul>
+        </div>
+  <% end %>
+
     <%= f.hidden_field :user_id%>
     
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
-    <br>
-    <%= f.label :genre %>
-    <%= f.text_field :genre %><br>
-    <br>
-    <%= f.label :rating %>
-    <%= f.text_field :rating %><br>
-    <br>
-    <%= f.label :year %>
-    <%= f.text_field :year %><br>
-    <br>
-    <%= f.label :poster %>
-    <%= f.file_field :poster %><br>
-    <br>
-    <%= f.submit %>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :genre %>
+        <%= f.text_field :genre %>
+      </div>
+      <div class="field">
+        <%= f.label :rating %>
+        <%= f.text_field :rating %>
+      </div>
+      <div class="field">
+        <%= f.label :year %>
+        <%= f.text_field :year %>
+      </div>
+      <div class="field">
+        <%= f.label :poster %>
+        <%= f.file_field :poster %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
 <% end %>
