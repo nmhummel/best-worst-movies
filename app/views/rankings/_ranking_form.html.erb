@@ -1,7 +1,6 @@
-<%= form_for(movie_rankings_path) do |f| %>
+<%= form_for([@movie, @ranking]) do |f| %>
 
-  <%= f.hidden_field :movie_id%>  
-  <%= f.hidden_field :user_id%>      
+  <%= f.hidden_field :movie_id%>       
     <div class="field">
         <div id="star-rating">  </div>
     </div>

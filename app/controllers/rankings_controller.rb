@@ -19,9 +19,10 @@ class RankingsController < ApplicationController
     end
 
     def create
-        @ranking = Ranking.new(ranking_params)
+        @movie = Movie.find_by_id(params[:movie_id])
+        @ranking = current_user.rankings.build(ranking_params)
         if @ranking.save
-            redirect_to ranking_path(@ranking)
+            redirect_to movie_path(@movie)
         else
             render :new, flash: { message: "Sorry-- rankings were not saved. Please try again" }
         end

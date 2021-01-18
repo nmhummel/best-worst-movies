@@ -1,0 +1,11 @@
+<br><br>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-footer">
+        <% if current_user %>
+          <%= button_to "Logout", logout_path, method: 'delete' %>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
