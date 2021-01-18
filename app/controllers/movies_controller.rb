@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     end
     
     def new
-        @movie = Movie.new
+        self.new_from_imdb(url)
     end
 
     def create

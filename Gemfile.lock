@@ -174,6 +174,7 @@ GEM
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     ntlm-http (0.1.1)
+    open-uri (0.1.0)
     pmap (1.1.1)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
@@ -299,6 +300,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mini_magick
   nokogiri
+  open-uri
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)

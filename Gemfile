@@ -31,6 +31,7 @@ gem "mini_magick"
 #image thumbnails
 
 gem 'nokogiri'
+gem 'open-uri'
 gem 'kimurai'
 #web scraping
 

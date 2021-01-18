@@ -13,8 +13,8 @@ class UsersController < ApplicationController
         if @user.save
          # if (user = User.create(user_params))
             session[:user_id] = @user.id
-            @user.image.purge
-            @user.image.attach(params[:user][:image])
+            # @user.image.purge
+            # @user.image.attach(params[:user][:image])
             redirect_to user_path(@user)
           else
             render :new
