@@ -15,3 +15,16 @@ body {
 		padding-bottom: 8px;
 	}
 }
+
+nav{
+	width: 100%;
+  }
+  .navbar{
+	float: left
+  }
+  .search{
+	float: right;
+  }
+  .clearfix{
+	clear: both;
+  }

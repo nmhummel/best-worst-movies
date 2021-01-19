@@ -1,0 +1,109 @@
+html {
+    background-color: #2a7025;
+    font-size: 100%;
+    }
+    
+    body{
+      margin: 0;
+      margin-top: 0;
+      font-family: Helvetica,Georgia, "Times New Roman", Times, serif, Arial, sans-serif;
+    
+    }
+    
+    /* Navigation Bar*/
+
+    nav {
+        width: 100%;
+        margin: 0;
+        background-color: goldenrod;
+    }
+
+    .navbar {
+        float: left;
+        margin: 0;
+        background-color: goldenrod;
+    }
+
+    .search{
+        float: right;
+        margin: 0;
+        background-color: goldenrod;
+      }
+
+    .clearfix{
+        clear: both;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: goldenrod;
+    }
+    
+    #current a {
+        background-color: goldenrod;
+        color: white;
+    }
+    
+    .nav li {
+      float: left;
+      border-right: 1px solid #bbb
+    }
+    
+    .nav li a {
+      display: block;
+      color: #000000;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    
+    /* Search Bar */
+    
+    .search {
+      float: right;
+    }
+     /* Heading */
+    .heading{
+      background-color: #f6f6f6;
+      border: 1px solid #b8d03b;
+      border-bottom:.5px solid #b8d03b;
+    }
+    
+    /* Main text area */
+    
+    .main {
+      margin: 10;
+      display: block;
+      background-color: #ffffff;
+      color: grey;
+      border: 1px solid #b8d03b;
+      float: left;
+    }
+    
+    .container{
+        margin: 10;
+    }
+    
+    .content{
+      width: 50%;
+      float: left;
+      padding: 5px 15px;
+    }
+    
+    .middle{
+      width:30%;
+      float: left;
+      padding: 5px 15px;
+      margin: 0px 5px 5px 5px;
+    }
+    
+    .sidebar{
+      width: 10%;
+      padding: 5px 15px;
+      float: left;
+    }
+    

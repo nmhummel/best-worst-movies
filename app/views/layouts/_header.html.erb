@@ -1,23 +1,21 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <%= link_to "Home", '/', class: "navbar-brand" %> || 
+<nav>
+  <div class="navbar">
+    <ul class="nav">
+      <li> <%= link_to "Home", '/', class: "navbar-brand" %></li>
+      <li><%= link_to "View Movies", movies_path, class: "active" %></li>
+      <li><%= link_to "See All Users", users_path, class: "active" %></li>
       <% if current_user %>
-        <%= link_to "#{current_user.username}'s profile", user_path(current_user), class:"navbar-brand"%> || 
-        <%= link_to "View Movies", movies_path, class: "active" %> || 
-        <%= link_to "See All Users", users_path, class: "active" %>
-      <% else %>
-        <%= link_to "Sign Up", new_user_path, class: "active" %> || 
-        <%= link_to "Log In", login_path, class: "active" %>
+       <li><%= link_to "Sign Up", new_user_path, class: "active" %></li>
+       <li><%= link_to "Log In", login_path, class: "active" %></li>
       <% end %>
-
+    </ul>
+  </div>
+  <div class="search">
       <%= form_tag movies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-        <p>
           <%= text_field_tag :search %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-        </p>
+          <%= submit_tag "Search Movies", name: nil, class: "btn btn-default" %>
       <% end %>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  </div>
+  <div class="clearfix"></div>
 </nav>
+

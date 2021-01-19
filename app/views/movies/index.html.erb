@@ -8,13 +8,17 @@
 
 
 <table>
- <tr>
-     <% @movies.each do |m| %>
-      <% if m.poster.attached? %>
-         <td> <%= image_tag(m.poster, :size => '150x200') %></td>
-      <%else%>
-         <td> <%= image_tag("the-title.jpg", :size => '150x200') %></td>
-      <%end%>
+   <tr>
+      <td>
+         <% @movies.each do |m| %>
+         <% if m.poster.attached? %>
+            <%= image_tag(m.poster, :size => '150x200') %>
+         <%else%>
+            <%= image_tag("the-title.jpg", :size => '150x200') %>
+         <%end%>
+      </td>
+   </tr>
+   <tr>
      <td>
         Title: <%= m.title %><br>
         Genre: <%= m.genre %><br>
@@ -23,7 +27,7 @@
         <%= link_to "Rank #{m.title}", new_movie_ranking_path(m.id) %>     
      </td>
      <% end %>
-  </tr>
+   </tr>
 
 </table>
 
