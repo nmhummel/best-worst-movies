@@ -34,6 +34,7 @@ class MoviesController < ApplicationController
     def show
         #byebug
         @movie = Movie.find(params[:id])
+        @rankings = @movie.rankings
     end
 
     def edit

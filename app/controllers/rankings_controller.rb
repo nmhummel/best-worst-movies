@@ -4,7 +4,7 @@ class RankingsController < ApplicationController
     def index
         if params[:movie_id] #nested
             @movie = Movie.find_by_id(params[:movie_id])
-            @review = @movie.rankings
+            @ranking = @movie.rankings
         else #not nested
             @rankings = Ranking.all
         end
@@ -40,7 +40,7 @@ class RankingsController < ApplicationController
     
     private
     def ranking_params
-        params.require(:ranking).permit(:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :movie_id, :user_id)
+        params.require(:ranking).permit(:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :movie_id, :user_id, movie_attributes:[movie_params], user_attributes:[user_params])
     end
 
 

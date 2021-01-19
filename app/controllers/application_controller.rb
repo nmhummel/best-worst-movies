@@ -16,7 +16,16 @@ class ApplicationController < ActionController::Base
         redirect_to 'not_found'
     end
 
-    private
+
+    def user_params
+        params.require(:user).permit(:username, :email, :password, :best_worst_movie, :admin, :avatar)
+    end
+  
+    def movie_params
+      params.require(:movie).permit(:title, :year, :rating, :runtime, :genre, :summary, :poster)
+    end
+
+    
 
 
 end

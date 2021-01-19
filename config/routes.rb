@@ -9,11 +9,9 @@ Rails.application.routes.draw do
 
   # movies/4/rankings/new
   resources :movies do
-    collection do
-      get 'search'
-    end
     resources :rankings, shallow: true
   end
+  resources :rankings, only: [:show, :edit, :update, :destroy]
 
   resources :users
 

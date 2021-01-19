@@ -2,60 +2,40 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-4">
-      <table class ="movie-show">
-        <tr>
-          <td>
-              <% if @movie.poster.attached? %>
-                <%= image_tag @movie.poster.variant(resize: "150x200") %>
-              <%else%>
-                <%= image_tag("the-title.jpg", :size => '150x200') %>
-              <%end%>
-            <div class="table-responsive">
-              <table class="table">
-              <tbody>
-                <tr>
-                    <td><strong>Title:</strong></td>
-                    <td><%= @movie.title %></td>
-                </tr>
-                    <tr>
-                    <td><strong>Genre:</strong></td>
-                    <td><%= @movie.genre %></td>
-                </tr>
-                    <tr>
-                    <td><strong>Rating:</strong></td>
-                    <td><%= @movie.rating %></td>
-                </tr>
-                    <tr>
-                    <td><strong>Year:</strong></td>
-                    <td><%= @movie.year %></td>
-                </tr>
-                <tr>
-                    <td><strong>Created by:</strong></td>
-                    <td>   </td>
-                </tr>
-                </tbody>
-              </table>
-             <%= link_to "Rank this Movie", new_movie_ranking_path(@movie) %>
-            </div>
-            </td>
-            <td>
+        <% if @movie.poster.attached? %>
+          <%= image_tag @movie.poster.variant(resize: "150x200") %>
+        <%else%>
+          <%= image_tag("the-title.jpg", :size => '150x200') %>
+        <%end%>
+        <div class="table-responsive">
+
+          <strong>Title:</strong>
+          <%= @movie.title %>
+      
           
+          <strong>Genre:</strong>
+          <%= @movie.genre %>
+      
+          
+          <strong>Rating:</strong>
+          <%= @movie.rating %>
+      
+          
+          <strong>Year:</strong>
+          <%= @movie.year %>
+            
+
+          <%= link_to 'Back to All Movies', movies_path %>
+
+        </div>
       </div>
       <div class="col-md-7 col-md-offset-1">
         <h1 class="review_title"><%= @movie.title %></h1>
-        <p>  </p>
-
-        <% if @rankings.blank? %>
+        <% if @movie.rankings.blank? %>
           <h3>No rankings just yet, would you like to add the first?</h3>
           <%= link_to "Rank this Flop", new_movie_ranking_path(@movie), class: "btn btn-danger" %>
         <% else %>
-
-          <% @rankings.each do |ranking| %>
-            <div class="rankings">
-              <div class="star-rating" data-score= <%= ranking.rating %> ></div>
-              <p><%= ranking.comment %></p>
-            </div>
-          <% end %>
+          <%= render partial: "rankings/index" %>
           
         <% end %>
       </div>
@@ -63,8 +43,9 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+
+
+
 
 <script>
     $('.star-rating').raty({
