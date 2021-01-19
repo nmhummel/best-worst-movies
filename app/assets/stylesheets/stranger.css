@@ -7,7 +7,6 @@ html {
       margin: 0;
       margin-top: 0;
       font-family: Helvetica,Georgia, "Times New Roman", Times, serif, Arial, sans-serif;
-    
     }
     
     /* Navigation Bar*/
@@ -47,6 +46,10 @@ html {
         color: white;
     }
     
+    .navbar-footer {
+      background-color: #2a7025;
+    }
+
     .nav li {
       float: left;
       border-right: 1px solid #bbb
@@ -85,8 +88,19 @@ html {
     }
     
     .container{
-        margin: 10;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 10;
     }
+
+    .item {
+      flex-basis: 5%;
+      align-self: auto
+    }
+ 
     
     .content{
       width: 50%;

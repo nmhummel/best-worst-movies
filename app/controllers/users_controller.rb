@@ -13,8 +13,8 @@ class UsersController < ApplicationController
         if @user.save
          # if (user = User.create(user_params))
             session[:user_id] = @user.id
-            # @user.image.purge
-            # @user.image.attach(params[:user][:image])
+            @user.avatar.purge
+            @user.avatar.attach(params[:user][:avatar])
             redirect_to user_path(@user)
           else
             render :new
@@ -29,7 +29,24 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+      @user = Movie.find_by_id(current_user)
+
+      #@ranking = @movie.rankings.build(user_id: current_user.id) #????
+      redirect_to user_path
+    end
+
+    def update
+      @user = User.find(params[:id])
+      @user.update(user_params)
+      redirect_to @user
+  end
+
     private 
+
+  def user_params
+      params.require(:user).permit(:username, :email, :password, :best_worst_movie, :admin, :avatar)
+  end
 
     # def upload
     #     uploaded_file = params[:avatar]

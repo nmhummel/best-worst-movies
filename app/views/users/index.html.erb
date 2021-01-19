@@ -3,7 +3,7 @@
  <tr>
     <% @users.each do |u| %>
         <% if u.avatar.attached? %>
-          <td> <%= image_tag(u.avatar, :size => '75') %></td>
+          <td> <%= image_tag u.avatar.variant(resize: "75x75") %> </td>
         <% else %>
           <td> <%= image_tag("tommy-wiseau.jpg", :size => '75') %></td>
         <%end%>
