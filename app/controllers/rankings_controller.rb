@@ -1,5 +1,6 @@
 class RankingsController < ApplicationController
     # ranking belongs to movie
+    include RankingsHelper
 
     def index
         if params[:movie_id] #nested

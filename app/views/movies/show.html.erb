@@ -5,25 +5,21 @@
         <% if @movie.poster.attached? %>
           <%= image_tag @movie.poster.variant(resize: "150x200") %>
         <%else%>
-          <%= image_tag("the-title.jpg", :size => '150x200') %>
+          <%= image_tag("stinky-cheese.png", :size => '150x200') %>
         <%end%>
         <div class="table-responsive">
 
           <strong>Title:</strong>
           <%= @movie.title %>
-      
-          
+               
           <strong>Genre:</strong>
-          <%= @movie.genre %>
-      
+          <%= @movie.genre %>     
           
           <strong>Rating:</strong>
           <%= @movie.rating %>
-      
           
           <strong>Year:</strong>
-          <%= @movie.year %>
-            
+          <%= @movie.year %>         
 
           <%= link_to 'Back to All Movies', movies_path %>
 
@@ -35,8 +31,9 @@
           <h3>No rankings just yet, would you like to add the first?</h3>
           <%= link_to "Rank this Flop", new_movie_ranking_path(@movie), class: "btn btn-danger" %>
         <% else %>
+        
           <%= render partial: "rankings/index" %>
-          
+    
         <% end %>
       </div>
     </div>

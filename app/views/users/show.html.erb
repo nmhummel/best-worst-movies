@@ -1,10 +1,5 @@
-<% if current_user && current_user.admin %>
-    <p><b>Welcome, ADMIN</b></p>
-<% end %>
-
 <table>
  <tr>
-
       <% if @user.avatar.attached? %>
          <td> <%= image_tag @user.avatar.variant(resize: "75x75") %> </td>
          <% else %>

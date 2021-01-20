@@ -7,7 +7,9 @@ class Movie < ApplicationRecord
     #validate :duplicates
     #searchkick
 
- 
+    def self.abc
+        order(title: :asc)
+    end
 
     # def duplicates
     #     if Movie.find_by(:title)

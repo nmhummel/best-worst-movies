@@ -10,9 +10,9 @@ class MoviesController < ApplicationController
 
     def index
         if params[:search]
-            @movies = Movie.search_by_name(params[:search])
+            @movies = Movie.abc.search_by_name(params[:search])
         else
-            @movies = Movie.all
+            @movies = Movie.abc.all
         end
     end
     

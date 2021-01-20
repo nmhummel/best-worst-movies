@@ -7,5 +7,11 @@ module ApplicationHelper
     def user_is_authenticated
         !!current_user
     end
+
+    def admin
+        if @current_user.admin == "true"
+            puts "ADMIN"
+        end
+    end
     
 end

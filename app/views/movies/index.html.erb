@@ -1,10 +1,7 @@
-<% if !current_user %>
-  <div class="jumbotron">
-    <h1>Your Favorite Movies Reviewed</h1>
-    
-    <p><%= link_to "Sign Up To Write A Review", signup_path %></p>
-  </div>
-<% end %>
+    <h1>Your Favorite Flops Reviewed</h1>
+    <% if !current_user %>
+      <%= link_to "Sign Up To Write A Review", signup_path %>
+    <% end %>
 
 <div class = "container">
   <div class="item">
