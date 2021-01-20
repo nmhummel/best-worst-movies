@@ -8,4 +8,12 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: { message: "%{value} is already in use.  Please select another or login."}
     validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, presence: true, uniqueness: { message: "%{value} is already in use.  Please select another or login."}
 
+    def self.from_omniauth(response)
+        User.find_or_create_by(uid: response[:uid], provider: response[:provider]) do |u|
+            u.username = response[:info][:name]
+            u.email = response[:info][:email]
+            u.password = SecureRandom.hex(15)
+        end
+    end
+
 end
