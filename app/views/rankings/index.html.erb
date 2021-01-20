@@ -11,8 +11,10 @@
       Sound: <%= rank.sound %><br>
       Plot: <%= rank.plot %><br>
       Effort: <%= rank.effort %><br>
-      AVERAGE OF ABOVE RANKINGS: <%= rank.average %><br>
-      Would watch it again: <%= rank.watch_again %><br>
-      Comment: <%= rank.comments %><br>
+      AVERAGE OF ABOVE RANKINGS: <%= rank.average.round(1) %><br>
+      Would watch it again: FINISH METHOD <br>
+      Comment: <%= rank.comments.empty? ? "N/A" : rank.comments %>
+      
     <% end %>
+    
 </p>

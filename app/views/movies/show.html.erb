@@ -6,19 +6,16 @@
     <%= image_tag("stinky-cheese.png", :size => '150x200') %>
   <%end%>
   <br>
-    <strong>Title:</strong>
-    <i><%= @movie.title %></i>
-    <br>
-    <strong>Genre:</strong>
-    <%= @movie.genre %>     
-    <br>
-    <strong>Rating:</strong>
-    <%= @movie.rating %>
-    <br>
-    <strong>Year:</strong>
-    <%= @movie.year %>         
+    <strong>Title:</strong> <i><%= @movie.title %></i>
+     <br>
+    <strong>Genre:</strong> <%= @movie.genre %>
+     <br>
+    <strong>Rating:</strong> <%= @movie.rating %>
+     <br>
+    <strong>Year:</strong> <%= @movie.year %>  
     <hr color="black">
-    <%= render partial: "rankings/show" %>
+
+    <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %>
   </div>
 </div>
   
@@ -27,7 +24,7 @@
   <% if @movie.rankings.blank? %>
     <h3>No rankings just yet, would you like to add the first?</h3> 
   <% end %>
-    <h3><%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %> </h3>
+    <h3><%= link_to "Rank this Flop if you haven't", new_movie_ranking_path(@movie) %> </h3>
 </div>
 
 

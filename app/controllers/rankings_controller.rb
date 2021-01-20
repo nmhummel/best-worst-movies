@@ -33,9 +33,10 @@ class RankingsController < ApplicationController
         end
     end
 
-    # def show
-    #     @ranking = Ranking.find_by_id(params[:id])
-    # end
+    def show
+        @ranking = Ranking.find_by_id(params[:id])
+        
+    end
 
     def destroy
         @ranking = Ranking.find(params[:id])
