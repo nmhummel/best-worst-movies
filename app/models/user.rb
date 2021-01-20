@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :rankings
     has_many :movies, through: :rankings
+    accepts_nested_attributes_for :rankings
     #has_many :ranked_movies, through: :rankings, source: :movie
     has_secure_password
     has_one_attached :avatar  #one associated image

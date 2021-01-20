@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+    include MoviesHelper
 
     # def search
     #     if params[:search].present?
@@ -34,7 +35,7 @@ class MoviesController < ApplicationController
     def show
         #byebug
         @movie = Movie.find(params[:id])
-        @rankings = @movie.rankings
+        @rankings = @movie.rankings.order_by_average
     end
 
     def edit
