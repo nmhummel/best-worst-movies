@@ -97,7 +97,7 @@ html {
     }
 
     .item {
-      flex-basis: 25%;
+      flex-basis: 50%;
       align-self: auto
     }
  

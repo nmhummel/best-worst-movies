@@ -5,7 +5,7 @@ class RankingsController < ApplicationController
     def index
         if params[:movie_id] #nested
             @movie = Movie.find_by_id(params[:movie_id])
-            @ranking = @movie.rankings
+            @rankings = @movie.rankings
         else #not nested
             @rankings = Ranking.all
         end

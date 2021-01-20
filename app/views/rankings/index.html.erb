@@ -1,7 +1,9 @@
 <p class="list-group-item ranking-item">
-    All Rankings:
-    <br>Username: <%= @user.ranking.username %> <br>
+    <b>All Rankings for <i><%= @movie.title %></i></b>
+    <br>
     <% @rankings.each do |rank| %>
+      <br>
+      Username: <%= rank.user.username %> <br>
       Editing: <%= rank.editing %><br>
       Cinematography: <%= rank.cinematography %><br>
       Acting: <%= rank.acting %><br>
@@ -10,8 +12,6 @@
       Plot: <%= rank.plot %><br>
       Effort: <%= rank.effort %><br>
       Would watch it again: <%= rank.watch_again %><br>
-      Comment:<br>
-      <%= rank.comments %>
+      Comment: <%= rank.comments %><br>
     <% end %>
-
 </p>
