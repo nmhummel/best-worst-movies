@@ -3,25 +3,22 @@ class Ranking < ApplicationRecord
     belongs_to :user
     validates  :editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, length: {within: 1..5, message: "Please choose between 1-5"}
     validates :movie, uniqueness: { scope: :user, message: "has already been ranked by you." }
+    before_save :overall_average
+    scope :avg_editing, -> {Ranking.editing.average}
 
+    # Ranking.last
+    # Ranking.last.overall_average
 
-    def movie_attributes=(hash_of_attributes)
-        # hash_of_attributes = {"title"=>"The Room", "year"=>"1999"}
-        #find or create a movie based on the attributes sent in
-        if !hash_of_attributes[:name].blank? && !hash_of_attributes[:year_founded].blank?
-            self.movie = Movie.find_or_create_by(hash_of_attributes)
-        end
+    def overall_average
+        #byebug
+        numbers = self.attributes.reject{|k,v| v.class != Integer || k.include?("id") || k == "average"}
+        self.average = numbers.values.sum / numbers.size 
+        
     end
 
-    # def self.average
-    #     @rankings.each do |key, value|
-    #         @average = values.reject {|v| v.length > 1 }.sum
-    #     end
-    # end
-
-    # def editing
-    #     @editing_avg = self.rankings.average(:editing) 
-    # end
+    def avg_editing
+        @editing_avg = self.rankings.average(:editing) 
+    end
 
     # def cinematography
     #     @cinematography_avg = @rankings.average(:cinematography) 
