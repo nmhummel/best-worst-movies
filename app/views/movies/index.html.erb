@@ -1,6 +1,4 @@
 <h1>Your Favorite Flops Reviewed</h1>
-  
-  
 
 <div class = "container">
   <div class="item">
@@ -14,11 +12,7 @@
         Genre: <%= m.genre %><br>
         Rating: <%= m.rating %><br>
         Year Released: <%= m.year %><br>
-        <% if current_user.rankings.blank? %>
-         <%= link_to "Rank #{m.title}", new_movie_ranking_path(m.id) %> 
-         <% else %>
-         <%= link_to "Edit your ranking of #{m.title}" %>
-         <%end%>
+       <%= link_to "View and Rank #{m.title}", movie_path(m.id) %> 
      <% end %>
   </div>
 </div>

@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :best_worst_movie, :admin, :avatar)
+    params.require(:user).permit(:username, :email, :password, :best_worst_movie, :admin, :avatar, rankings_attributes: [:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :average])
   end
 
 

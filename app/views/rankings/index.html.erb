@@ -1,0 +1,17 @@
+<p class="list-group-item ranking-item">
+    All Rankings:
+    <br>Username: <%= @user.ranking.username %> <br>
+    <% @rankings.each do |rank| %>
+      Editing: <%= rank.editing %><br>
+      Cinematography: <%= rank.cinematography %><br>
+      Acting: <%= rank.acting %><br>
+      Special Effects: <%= rank.special_effects %><br>
+      Sound: <%= rank.sound %><br>
+      Plot: <%= rank.plot %><br>
+      Effort: <%= rank.effort %><br>
+      Would watch it again: <%= rank.watch_again %><br>
+      Comment:<br>
+      <%= rank.comments %>
+    <% end %>
+
+</p>

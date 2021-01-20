@@ -1,0 +1,32 @@
+
+  
+  <p class="list-group-item ranking-item">
+    Overall Averages for...
+    <br><br>
+    <% @rankings.each do |rank| %>
+      Editing: <%= rank.editing %><br>
+      Cinematography: <%= rank.cinematography %><br>
+      Acting: <%= rank.acting %><br>
+      Special Effects: <%= rank.special_effects %><br>
+      Sound: <%= rank.sound %><br>
+      Plot: <%= rank.plot %><br>
+      Effort: <%= rank.effort %><br>
+      The Average of Averages:     <br>
+      Percentage of people who would watch it again: <br>
+    <% end %>
+    <br>
+    Comments: 
+    
+
+  </p>
+
+
+
+
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'ranking[ranking_params]'
+  });
+</script>

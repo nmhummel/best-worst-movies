@@ -1,44 +1,40 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-        <% if @movie.poster.attached? %>
-          <%= image_tag @movie.poster.variant(resize: "150x200") %>
-        <%else%>
-          <%= image_tag("stinky-cheese.png", :size => '150x200') %>
-        <%end%>
-        <div class="table-responsive">
-
-          <strong>Title:</strong>
-          <%= @movie.title %>
-               
-          <strong>Genre:</strong>
-          <%= @movie.genre %>     
-          
-          <strong>Rating:</strong>
-          <%= @movie.rating %>
-          
-          <strong>Year:</strong>
-          <%= @movie.year %>         
-
-          <%= link_to 'Back to All Movies', movies_path %>
-
-        </div>
-      </div>
-      <div class="col-md-7 col-md-offset-1">
-        <h1 class="review_title"><%= @movie.title %></h1>
-        <% if @movie.rankings.blank? %>
-          <h3>No rankings just yet, would you like to add the first?</h3>
-          <%= link_to "Rank this Flop", new_movie_ranking_path(@movie), class: "btn btn-danger" %>
-        <% else %>
-        
-          <%= render partial: "rankings/index" %>
-    
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div class="container">
+  <div class="item">
+  <% if @movie.poster.attached? %>
+    <%= image_tag @movie.poster.variant(resize: "150x200") %>
+  <%else%>
+    <%= image_tag("stinky-cheese.png", :size => '150x200') %>
+  <%end%>
+  
+    <strong>Title:</strong>
+    <i><%= @movie.title %></i>
+    <br>
+    <strong>Genre:</strong>
+    <%= @movie.genre %>     
+    <br>
+    <strong>Rating:</strong>
+    <%= @movie.rating %>
+    <br>
+    <strong>Year:</strong>
+    <%= @movie.year %>         
+    <br>
+    <%= link_to 'Back to All Movies', movies_path %>
 </div>
+</div>
+  
+<div class="col-md-7 col-md-offset-1">
+  <h1 class="review_title"><i><%= @movie.title %></i></h1>
+  <% if @movie.rankings.blank? %>
+    <h3>No rankings just yet, would you like to add the first?</h3>
+    <%= link_to "Rank this Flop", new_movie_ranking_path(@movie), class: "btn btn-danger" %>
+  <% else %>
+    <h2>The Average Rankings from All Users</h2>
+    <h3><%= link_to "Add Your Rankings", new_movie_ranking_path(@movie) %> </h3>
+    <%= render partial: "rankings/show" %>
+  <% end %>
+</div>
+
+
 
 
 

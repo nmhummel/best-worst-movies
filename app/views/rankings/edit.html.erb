@@ -1,7 +1,9 @@
-<h1>Editing review</h1>
-
+<!-- Editing review-->
+<div class="container">
 <%= render partial: 'layouts/errors', locals: {object: @ranking} %>
+</div>
 
+<div class="container">
 <%= render 'ranking_form' %>
+</div>
 
-<%= link_to 'Back', movie_path(@movie) %>
