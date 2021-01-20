@@ -14,7 +14,11 @@
         Genre: <%= m.genre %><br>
         Rating: <%= m.rating %><br>
         Year Released: <%= m.year %><br>
-        <%= link_to "Rank #{m.title}", new_movie_ranking_path(m.id) %>     
+        <% if current_user.rankings.blank? %>
+         <%= link_to "Rank #{m.title}", new_movie_ranking_path(m.id) %> 
+         <% else %>
+         <%= link_to "Edit your ranking of #{m.title}" %>
+         <%end%>
      <% end %>
   </div>
 </div>

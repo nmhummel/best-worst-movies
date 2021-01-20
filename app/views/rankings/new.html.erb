@@ -1,8 +1,9 @@
-<h1>Add your Rankings for <%= @ranking.movie.title %> on a scale of 1-5 (5 being the worst)
-
+<div class="container"><h1>Add your Rankings for <i><%= @ranking.movie.title %></i></h1>
+<h2>In this world, on a scale of 1-5, 5 is the worst.</h2></div>
+<br><br><br>
 <%= render partial: 'layouts/errors', locals: {object: @ranking} %>
 <!-- make nested if/else at beginning? end of part 3 video -->
-
+<br><br><br>
 <%= render 'ranking_form' %>
 
 

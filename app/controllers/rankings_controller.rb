@@ -12,10 +12,14 @@ class RankingsController < ApplicationController
     end
 
     def new
-        if @movie = Movie.find_by_id(params[:movie_id])
-            @ranking = @movie.rankings.build
+        if current_user 
+            if @movie = Movie.find_by_id(params[:movie_id])
+                @ranking = @movie.rankings.build
+            else
+                @ranking = Ranking.new
+            end
         else
-            @ranking = Ranking.new
+            redirect_to login_path, flash: { message: "Please login to review movies." }
         end
     end
 

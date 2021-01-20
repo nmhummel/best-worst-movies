@@ -1,5 +1,5 @@
 <h1>LOG IN PAGE</h1>
-
+<div class="container">
 <%= form_for :user do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
@@ -9,7 +9,7 @@
     <br>
     <%= f.submit "Log In" %>
 <% end %>
-
+</div>
 ==OR== <br><br>
 
 <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
