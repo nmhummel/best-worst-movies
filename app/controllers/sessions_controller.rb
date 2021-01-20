@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to user_path(user)
         else
-            flash[:message] = "Dang you, Google!"
-            redirect_to '/login'
+            flash[:message] = user.errors.full_messages.join
+            redirect_to login_path
         end
     end
 
@@ -24,11 +24,11 @@ class SessionsController < ApplicationController
 
     def create
         #byebug
-        @user = User.find_by_username(params[:user][:username])
+        user = User.find_by_username(params[:user][:username])
         # return head(:forbidden) unless user.authenticate(user_params[:password])  # read up on
-        if @user.try(:authenticate, params[:user][:password])
-            session[:user_id] = @user.id
-            redirect_to user_path(@user)
+        if user && user.try(:authenticate, params[:user][:password])
+            session[:user_id] = user.id
+            redirect_to user_path(user)
         else
             flash[:error] = "Sorry-- login info was incorrect. Please try again."
             redirect_to login_path

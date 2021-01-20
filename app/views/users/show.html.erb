@@ -12,6 +12,12 @@
         Favorite Schlock Flop: <i><%= current_user.best_worst_movie %></i><br>
      </td>
   </tr>
+      <% if user_is_authenticated %>
+         <tr>
+           <td> <%= link_to "Edit Profile", edit_user_path %> </td>
+         </tr>
+      <%end%>
+
 </table>
 
 

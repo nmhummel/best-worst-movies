@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
     def show
         #byebug
         @movie = Movie.find(params[:id])
-        @rankings = @movie.rankings.order_by_average
+        @rankings = @movie.rankings #.order_by_average
     end
 
     def edit
@@ -55,7 +55,7 @@ class MoviesController < ApplicationController
     private
 
     def movie_params
-        params.require(:movie).permit(:title, :year, :rating, :runtime, :genre, :summary, :poster)
+        params.require(:movie).permit(:title, :year, :rating, :runtime, :genre, :summary, :poster, rankings_attributes: [:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :average])
     end
 
  

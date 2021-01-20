@@ -22,7 +22,7 @@ class Movie < ApplicationRecord
     #     order(avg: :desc)
     # end
 
-    Movie.joins(:rankings).group(:id).order('avg(average) desc')
+ 
 
 end
 

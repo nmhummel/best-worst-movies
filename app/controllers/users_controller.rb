@@ -23,33 +23,34 @@ class UsersController < ApplicationController
 
     def show
         if user_is_authenticated
-          @user = User.find_by_id(params[:id])
+          @user = User.find(params[:id])
         else
           redirect_to '/'
         end
     end
 
     def edit
-      @user = Movie.find_by_id(current_user)
+      #byebug
+      @user = User.find(params[:id])
 
       #@ranking = @movie.rankings.build(user_id: current_user.id) #????
-      redirect_to user_path
+
     end
 
     def update
       @user = User.find(params[:id])
-      @user.update(user_params)
-      redirect_to @user
+      if @user.update(user_params)
+        redirect_to @user
+      else
+        render :edit 
+      end
+    end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :best_worst_movie, :admin, :avatar)
   end
 
-     
-
-
-    # def upload
-    #     uploaded_file = params[:avatar]
-    #     File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-    #       file.write(uploaded_file.read)
-    #     end
-    # end
 
 end

@@ -33,7 +33,12 @@ class RankingsController < ApplicationController
     #     @ranking = Ranking.find_by_id(params[:id])
     # end
 
-
+    def destroy
+        @ranking = Ranking.find(params[:id])
+        @ranking.destroy
+    
+        redirect_to '/'
+    end
 
     # def edit
     #     redirect_to ranking_path
