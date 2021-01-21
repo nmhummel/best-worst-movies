@@ -1,8 +1,10 @@
 
   
   <p class="list-group-item ranking-item">
-    AVERAGE RANKINGS FROM ALL USERS
+    == AVERAGE SCORES == <br>
+    <font size ="2">(Currently ranked by <%= rank.ids.count %> users)</font>
     <br>
+      <b>The Average of All Averages: overall_average<br></b>
       Editing: <%= rank.avg_editing %> <br>
       Cinematography: <%= rank.avg_cinematography %><br>
       Acting: <%= rank.avg_acting %><br>
@@ -10,12 +12,9 @@
       Sound: <%= rank.avg_sound %><br>
       Plot: <%= rank.avg_plot %><br>
       Effort: <%= rank.avg_effort %><br>
-      The Average of All Averages: <%= rank.avg_average %>    <br>
-      Percentage of people who would watch it again: FIX THIS<br>
-    <br>
-
+      <b>Percentage of people who would watch it again: FIX THIS<br></b>
     
-
+    <br>
   </p>
 
 

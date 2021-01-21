@@ -4,6 +4,7 @@
     <% @rankings.each do |rank| %>
       <br>
       Username: <%= rank.user.username %> <br>
+      OVERALL SCORE: <%= rank.overall_average.round(1) %><br>
       Editing: <%= rank.editing %><br>
       Cinematography: <%= rank.cinematography %><br>
       Acting: <%= rank.acting %><br>
@@ -11,10 +12,9 @@
       Sound: <%= rank.sound %><br>
       Plot: <%= rank.plot %><br>
       Effort: <%= rank.effort %><br>
-      AVERAGE OF ABOVE RANKINGS: <%= rank.average.round(1) %><br>
       Would watch it again: FINISH METHOD <br>
-      Comment: <%= rank.comments.empty? ? "N/A" : rank.comments %>
-      
+      Thoughts/Additional Rankings: <%= rank.comments.empty? ? "N/A" : rank.comments %>
+      <br>
     <% end %>
     
 </p>

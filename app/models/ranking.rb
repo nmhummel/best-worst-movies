@@ -16,7 +16,7 @@ class Ranking < ApplicationRecord
 
   
     def overall_average
-        #byebug
+        # this takes overall score for the 7 categories
         numbers = self.attributes.reject{|k,v| v.class != Integer || k.include?("id") || k == "average"}
         self.average = numbers.values.sum.to_f / 7       
     end

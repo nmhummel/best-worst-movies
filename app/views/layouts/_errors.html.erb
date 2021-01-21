@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
 <div id="error_explanation">
-    <h5><%= pluralize(object.errors.count, "error") %> prohibited this ranking from being saved:</h5>
+    <h5><%= pluralize(object.errors.count, "error") %> prohibited this from being saved:</h5>
     <ul>
     <% object.errors.full_messages.each do |message| %>
     <li><%= message %></li>

@@ -14,17 +14,21 @@
      <br>
     <strong>Year:</strong> <%= @movie.year %>  
     <hr color="black">
+    <h5><%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %> </h5> 
 
+    <% if !@movie.rankings.nil? %>
+        <h3>No rankings just yet; would you like to add the first?</h3> 
+    <% else %>
     <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %>
+    <% end %>
   </div>
 </div>
+
+      
   
-<div class="col-md-7 col-md-offset-1">
+<div class="container">
   <h1 class="review_title"><i><%= @movie.title %></i></h1>
-  <% if @movie.rankings.blank? %>
-    <h3>No rankings just yet, would you like to add the first?</h3> 
-  <% end %>
-    <h3><%= link_to "Rank this Flop if you haven't", new_movie_ranking_path(@movie) %> </h3>
+  <br><br>
 </div>
 
 
