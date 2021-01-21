@@ -12,10 +12,9 @@ module ApplicationHelper
         !!current_user
     end
 
-    def admin
-        if @current_user.admin == "true"
-            puts "ADMIN"
-        end
+    def is_admin?
+        current_user.admin == "true" || current_user.ranked_movies
+ 
     end
     
 end

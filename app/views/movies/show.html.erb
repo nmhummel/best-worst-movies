@@ -13,10 +13,13 @@
     <strong>Rating:</strong> <%= @movie.rating %>
      <br>
     <strong>Year:</strong> <%= @movie.year %>  
-    <% if current_user %>
+    
+    <% if is_admin? %>
       <% link_to "Edit Movie", edit_movie_path(@movie) %>
     <% end %>
+
     <hr color="black">
+
     <h5><%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %> </h5> 
 
     <% if @movie.rankings.empty? %>

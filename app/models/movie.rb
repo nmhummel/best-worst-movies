@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+    belongs_to :user
     has_many :rankings
     has_many :users, through: :rankings
     accepts_nested_attributes_for :rankings
