@@ -16,10 +16,10 @@
     <hr color="black">
     <h5><%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %> </h5> 
 
-    <% if !@movie.rankings.nil? %>
+    <% if !@movie.rankings %>
         <h3>No rankings just yet; would you like to add the first?</h3> 
     <% else %>
-    <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %>
+      <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %>
     <% end %>
   </div>
 </div>

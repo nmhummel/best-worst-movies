@@ -12,7 +12,6 @@
        <li><%= link_to "Create Movie", new_movie_path, class: "active" %></li>
        <li><%= link_to "#{current_user.username}'s Profile Page", user_path(current_user), class: "active" %></li>
        <li> <% admin %> </li>
-       <li><%= button_to "Logout", logout_path, method: 'delete' %></li>
     <% end %>
     </ul>
   </div>

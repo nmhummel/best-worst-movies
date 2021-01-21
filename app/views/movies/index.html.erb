@@ -7,12 +7,12 @@
          <%= image_tag m.poster.variant(resize: "100x100") %> 
       <%else%>
          <%= image_tag("the-title.jpg", :size => '150x200') %>
-      <%end%>
+      <%end%><br><br>
         Title: <i><%= m.title %></i><br>
         Genre: <%= m.genre %><br>
         Rating: <%= m.rating %><br>
         Year Released: <%= m.year %><br>
-       <%= link_to "View and Rank #{m.title}", movie_path(m.id) %> 
+       <%= link_to "View and Rank #{m.title}", movie_path(m.id) %> <br><br>
      <% end %>
   </div>
 </div>

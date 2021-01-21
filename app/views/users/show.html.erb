@@ -14,7 +14,8 @@
   </tr>
       <% if user_is_authenticated %>
          <tr>
-           <td> <%= link_to "Edit Profile", edit_user_path %> </td>
+           <td> <%= link_to "Edit Profile", edit_user_path %> </td><br>
+           <td><%= button_to "Logout", logout_path, method: 'delete' %></td>
          </tr>
       <%end%>
 
