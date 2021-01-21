@@ -1,7 +1,3 @@
-<%= form_with model: @movie do |f| %>
-
-    <%= f.hidden_field :user_id%>
-    
       <div class="field">
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -22,7 +18,4 @@
         <%= f.label :poster %>
         <%= f.file_field :poster %>
       </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-<% end %>
+      <br><br>

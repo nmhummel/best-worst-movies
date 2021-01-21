@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
     
     def new
         @movie = Movie.new
+        @movie.rankings.build
     end
 
     def create
@@ -50,12 +51,10 @@ class MoviesController < ApplicationController
         redirect_to @movie
     end
 
-
-
     private
 
     def movie_params
-        params.require(:movie).permit(:title, :year, :rating, :runtime, :genre, :summary, :poster, rankings_attributes: [:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :average])
+        params.require(:movie).permit(:title, :year, :rating, :runtime, :genre, :summary, :poster, rankings_attributes: [:user_id, :editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :average])
     end
 
  

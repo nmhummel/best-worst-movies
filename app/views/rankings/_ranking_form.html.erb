@@ -1,9 +1,5 @@
-<%= form_for([@movie, @ranking]) do |f| %>
 
-  <%= f.hidden_field :movie_id%>       
-    <div class="field">
-        <div id="star-rating"></div>
-    </div>
+
     <div class="field">
         <%= f.label :editing %>
         <%= f.number_field :editing %>
@@ -40,14 +36,5 @@
         <%= f.label :comments %>
         <%= f.text_area :comments, size: "35x5" %>
     </div>
-    <div class="actions">
-        <%= f.submit %>
-    </div>
-<% end %>
 
-<script>
-  $('#star-rating').raty({
-    path: '/assets/',
-    scoreName: 'ranking[ranking_params]'
-  });
-</script>
+

@@ -4,6 +4,23 @@
 <%= render partial: 'layouts/errors', locals: {object: @ranking} %>
 <!-- make nested if/else at beginning? end of part 3 video -->
 <br><br><br>
-<%= render 'ranking_form' %>
+
+<%= form_for([@movie, @ranking]) do |f| %>
+  <%= f.hidden_field :movie_id%>   
+  <%= f.hidden_field :user_id%>
+    <%= render partial: 'ranking_form', locals: {f: f} %>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>
 
 
+
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'ranking[ranking_params]'
+  });
+</script>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="item">
   <% if @movie.poster.attached? %>
-    <%= image_tag @movie.poster.variant(resize: "150x200") %>
+    <%= image_tag url_for(@movie.poster.variant(resize: "150x200").processed.service_url) %>
   <%else%>
     <%= image_tag("stinky-cheese.png", :size => '150x200') %>
   <%end%>
@@ -13,6 +13,9 @@
     <strong>Rating:</strong> <%= @movie.rating %>
      <br>
     <strong>Year:</strong> <%= @movie.year %>  
+    <% if current_user %>
+      <% link_to "Edit Movie", edit_movie_path(@movie) %>
+    <% end %>
     <hr color="black">
     <h5><%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %> </h5> 
 
@@ -23,8 +26,7 @@
     <% end %>
   </div>
 </div>
-
-      
+   
   
 <div class="container">
   <h1 class="review_title"><i><%= @movie.title %></i></h1>

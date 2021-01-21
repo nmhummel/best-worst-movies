@@ -1,0 +1,19 @@
+<%= form_with model: @movie do |f| %>
+
+    <%= f.hidden_field :user_id%>
+    
+    <%= render partial: 'form_bits', locals: {f: f} %>
+
+      <h3>Rank Movie</h3>
+      <%= f.fields_for :rankings do |rank| %>
+        <%= rank.hidden_field :user_id, value: current_user.id %>
+        <%= render partial: "rankings/ranking_form", locals: {f: rank} %>
+        <div class="field">
+          <div id="star-rating"></div>
+        </div>
+      <% end %>
+
+   <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
