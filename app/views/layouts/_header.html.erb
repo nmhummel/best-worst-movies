@@ -1,16 +1,22 @@
 <nav>
 
   <div id="navbar">
-    <%= link_to "Home", '/', class: "navbar-brand" %>
     <ul id="newnav">
+    <li><%= link_to "Home", '/', class: "navbar-brand" %></li>
+    <li><%= image_tag("trans-oscar.png", :size => '30x40') %></li>
     <% if !current_user %>
-      <li><%= link_to "Log In", login_path, class: "active" %></li>
+      <li><%= link_to "Log In", login_path, class: "active" %></li> 
+      <li><%= image_tag("trans-oscar.png", :size => '30x40') %></li>
       <li><%= link_to "Sign Up", new_user_path, class: "active" %></li>
-      <li><%= link_to "View Movies", movies_path, class: "active" %></li>
+      <li><%= image_tag("trans-oscar.png", :size => '30x40') %></li>
+      <li><%= link_to "View Movies", movies_path, class: "active" %></li> 
     <% else %>
       <li><%= link_to "See All Users", users_path, class: "active" %></li>
+      <li><%= image_tag("trans-oscar.png", :size => '30x40') %></li>
       <li><%= link_to "View Movies", movies_path, class: "active" %></li>
+      <li><%= image_tag("trans-oscar.png", :size => '30x40') %></li>
       <li><%= link_to "Create Movie", new_movie_path, class: "active" %></li>
+      <li><%= image_tag("trans-oscar.png", :size => '30x40') %></li>
       <li><%= link_to "#{current_user.username}'s Profile Page", user_path(current_user), class: "active" %></li>
     <% end %>
     <%= form_tag movies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
@@ -19,7 +25,6 @@
     <% end %>
     </ul>
   </div>
-
   <div id="clearfix"></div>
 
 </nav>

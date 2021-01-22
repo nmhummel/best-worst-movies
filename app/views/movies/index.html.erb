@@ -1,10 +1,9 @@
-<center><h1>Your Favorite Flops Reviewed</h1></center>
+<div class="center">
+<h1 align="center">Your Favorite Flops Reviewed</h1>
 
-<div class = "container">
-  <div class="item">
+<div class = "all-movies">
      <% @movies.each do |m| %>
-         <div class="responsive">
-            <div class="gallery">
+          <div class="movie">
                <% if m.poster.attached? %>
                   <%= image_tag m.poster.variant(resize: "150x200") %> 
                <%else%>
@@ -17,8 +16,9 @@
                Year Released: <%= m.year %><br>
                <%= link_to "View and Rank", movie_path(m.id) %> <br><br>
             </div>
-         </div>
+         
      <% end %>
-  </div>
+
 </div>
 
+</div>

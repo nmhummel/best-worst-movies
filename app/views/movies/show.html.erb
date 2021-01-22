@@ -6,17 +6,12 @@
     <%= image_tag("stinky-cheese.png", :size => '150x200') %>
   <%end%>
   <br>
-    <strong>Title:</strong> <i><%= @movie.title %></i>
-     <br>
-    <strong>Genre:</strong> <%= @movie.genre %>
-     <br>
-    <strong>Rating:</strong> <%= @movie.rating %>
-     <br>
+    <strong>Title:</strong> <i><%= @movie.title %></i>  <br>
+    <strong>Genre:</strong> <%= @movie.genre %> <br>
+    <strong>Rating:</strong> <%= @movie.rating %>   <br>
     <strong>Runtime:</strong> <%= @movie.runtime %><br>
-    <strong>Year:</strong> <%= @movie.year %>  
-      <br>
-      <b>Created by:</b> <%= @movie.user.username %>
-      <br>
+    <strong>Year:</strong> <%= @movie.year %>   <br>
+    <b>Created by:</b> <%= @movie.user.username %>  <br>
     <% if is_admin? || @movie.user_id == current_user %>
       <%= link_to "Edit Movie", edit_movie_path(@movie) %> <br><br>
       <%= button_to "Delete Movie", movie_path, method: 'delete' %></td>
@@ -52,15 +47,4 @@
 
 
 
-
-
-<script>
-    $('.star-rating').raty({
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
-</script>
 
