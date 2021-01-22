@@ -16,6 +16,7 @@
       <br>
     <% if is_admin? || @movie.user_id == current_user %>
       <%= link_to "Edit Movie", edit_movie_path(@movie) %>
+      <%= button_to "Delete Movie", movie_path, method: 'delete' %></td>
     <% end %>
 
     <hr color="black">

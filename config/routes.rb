@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   #match '/auth/failure' => 'sessions#failure' 
   
   get '/signup' => 'users#new'
-
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   # movies/4/rankings/new
@@ -18,5 +17,4 @@ Rails.application.routes.draw do
 
   resources :users
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
