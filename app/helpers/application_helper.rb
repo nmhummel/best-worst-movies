@@ -13,8 +13,7 @@ module ApplicationHelper
     end
 
     def is_admin?
-        current_user.admin == "true" || current_user.ranked_movies
- 
+        current_user.admin == true 
     end
     
 end

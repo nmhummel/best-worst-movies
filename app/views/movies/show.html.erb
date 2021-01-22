@@ -13,9 +13,9 @@
     <strong>Rating:</strong> <%= @movie.rating %>
      <br>
     <strong>Year:</strong> <%= @movie.year %>  
-    
-    <% if is_admin? %>
-      <% link_to "Edit Movie", edit_movie_path(@movie) %>
+      <br>
+    <% if is_admin? || @movie.user_id == current_user %>
+      <%= link_to "Edit Movie", edit_movie_path(@movie) %>
     <% end %>
 
     <hr color="black">
@@ -31,12 +31,20 @@
 </div>
    
   
-<div class="container">
-  <h1 class="review_title"><i><%= @movie.title %></i></h1>
-  <br><br>
-</div>
-
-
+<table>
+  <tr>
+    <td>
+      <br><br>
+      <h2 class="review_title">Top Comments for <i><%= @movie.title %></i></h2>
+    </td>
+  </tr>
+  <tr>
+    <td><% @rankings.each do |r| %>
+      <h4>"<%= r.comments %>"</h4><br><br>
+    <% end %>
+    </td>
+  </tr>
+</table>
 
 
 
