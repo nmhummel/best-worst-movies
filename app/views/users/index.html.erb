@@ -1,25 +1,21 @@
 <br><br>
 <div class="users">
 
-<table>
- <tr>
     <% @users.each do |u| %>
+      <div class="userbox">
         <% if u.avatar.attached? %>
-          <td> <%= image_tag u.avatar.variant(resize: "75x75") %> </td>
+           <%= image_tag u.avatar.variant(resize: "75x75") %> 
         <% else %>
-          <td> <%= image_tag("tommy-wiseau.jpg", :size => '75') %></td>
+           <%= image_tag("tommy-wiseau.jpg", :size => '75') %>
         <%end%>
-        <td>
-            Username: <%= u.username %>
-              <% if u.admin? %>
-                <%= mail_to u.email, "(Admin)" %>
-              <% end %>
-            <br>Favorite Schlock Flop: <i><%= u.best_worst_movie %></i><br><br>
-        </td>
+    
+        Username: <%= u.username %>
+          <% if u.admin? %>
+            <%= mail_to u.email, "(Admin)" %>
+          <% end %>
+        <br>Favorite Schlock Flop: <i><%= u.best_worst_movie %></i><br><br>
+        </div>
     <% end %>
- </tr>
-</table>
-
 
 
 </div>

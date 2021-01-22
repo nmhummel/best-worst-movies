@@ -1,24 +1,35 @@
-<table>
- <tr>
+<div id="user-page">
+   <div id="user-info">
       <% if @user.avatar.attached? %>
-         <td> <%= image_tag @user.avatar.variant(resize: "75x75") %> </td>
+          <%= image_tag @user.avatar.variant(resize: "75x75") %> 
          <% else %>
-         <td> <%= image_tag("tommy-wiseau.jpg", :size => '75x75') %> </td>
+          <%= image_tag("tommy-wiseau.jpg", :size => '75x75') %> 
       <%end%>
-
-     <td>
+     
         Username: <%= current_user.username %><br>
         Email: <%= current_user.email %><br>
         Favorite Schlock Flop: <i><%= current_user.best_worst_movie %></i><br>
-     </td>
-  </tr>
+     
       <% if user_is_authenticated %>
-         <tr>
-           <td> <%= link_to "Edit Profile", edit_user_path %> </td><br>
-           <td><%= button_to "Logout", logout_path, method: 'delete' %></td>
-         </tr>
+   
+       <%= link_to "Edit Profile", edit_user_path %> <br>
+       <%= button_to "Logout", logout_path, method: 'delete' %>
+   
       <%end%>
+   </div>
 
-</table>
-
-
+   <div id="user-movies-rankings">
+      <div id="user-movies">
+      Your Created Movies
+      <% user_movies.each do |um| %>
+         <%= link_to "#{um[:title]}", movie_path(um)%><br>
+      <%end%>
+      </div>
+      <div id="user-rankings">
+      Your Ranked Movies
+      <%current_user.ranked_movies.each do |rm| %>
+         <%= link_to "#{rm[:title]}", movie_path(rm)%><br>
+      <%end%>
+      </div>
+   </div>
+</div> 

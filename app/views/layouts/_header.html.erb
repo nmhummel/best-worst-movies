@@ -1,27 +1,26 @@
 <nav>
-  <div class="navbar">
-    <ul class="nav">
-    <div class="site-title">
-    <li><%= link_to "Home", '/', class: "navbar-brand" %></li>
+
+  <div id="navbar">
+    <%= link_to "Home", '/', class: "navbar-brand" %>
+    <ul id="newnav">
     <% if !current_user %>
       <li><%= link_to "Log In", login_path, class: "active" %></li>
       <li><%= link_to "Sign Up", new_user_path, class: "active" %></li>
       <li><%= link_to "View Movies", movies_path, class: "active" %></li>
     <% else %>
-       <li><%= link_to "See All Users", users_path, class: "active" %></li>
-       <li><%= link_to "View Movies", movies_path, class: "active" %></li>
-       <li><%= link_to "Create Movie", new_movie_path, class: "active" %></li>
-       <li><%= link_to "#{current_user.username}'s Profile Page", user_path(current_user), class: "active" %></li>
+      <li><%= link_to "See All Users", users_path, class: "active" %></li>
+      <li><%= link_to "View Movies", movies_path, class: "active" %></li>
+      <li><%= link_to "Create Movie", new_movie_path, class: "active" %></li>
+      <li><%= link_to "#{current_user.username}'s Profile Page", user_path(current_user), class: "active" %></li>
+    <% end %>
+    <%= form_tag movies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search Movies", name: nil, class: "btn btn-default" %>
     <% end %>
     </ul>
-    </div>
   </div>
-  <div class="search">
-      <%= form_tag movies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag "Search Movies", name: nil, class: "btn btn-default" %>
-      <% end %>
-  </div>
-  <div class="clearfix"></div>
+
+  <div id="clearfix"></div>
+
 </nav>
 

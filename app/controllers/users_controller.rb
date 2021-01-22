@@ -24,6 +24,8 @@ class UsersController < ApplicationController
     def show
         if user_is_authenticated
           @user = User.find(params[:id])
+          @movies = Movie.all
+          @rankings = Ranking.all
         else
           redirect_to '/'
         end

@@ -8,6 +8,26 @@ module ApplicationHelper
         @current_movie ||= Movie.find_by_id(:id) 
     end
 
+    def user_movies
+        @movies = Movie.where(user_id: session[:user_id])
+        @movies.each do |one|
+            if one.nil?
+                "No movies yet"
+            else
+                one
+            end 
+        end
+    end
+
+    def user_rankings
+        ranking = @rankings.find_by(user_id: current_user)
+        if ranking.nil?
+            "No rankings yet"
+        else 
+            ranking
+        end
+    end
+
     def user_is_authenticated
         !!current_user
     end
