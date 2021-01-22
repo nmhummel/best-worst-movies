@@ -47,7 +47,10 @@ class MoviesController < ApplicationController
 
     def update
         @movie = Movie.find(params[:id])
-        @movie.update(movie_params)
+        if @movie.update(movie_params)
+            @movie.poster.purge
+            @movie.poster.attach(params[:movie][:poster])
+        end  
         redirect_to @movie
     end
 

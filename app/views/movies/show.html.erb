@@ -12,6 +12,7 @@
      <br>
     <strong>Rating:</strong> <%= @movie.rating %>
      <br>
+    <strong>Runtime:</strong> <%= @movie.runtime %><br>
     <strong>Year:</strong> <%= @movie.year %>  
       <br>
     <% if is_admin? || @movie.user_id == current_user %>
