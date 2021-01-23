@@ -34,7 +34,10 @@ class UsersController < ApplicationController
     def edit
       #byebug
       @user = User.find(params[:id])
-
+      if @user != current_user
+        flash[:message] = "Not your profile, so you can't edit it."
+        redirect_to user_path
+      end
       #@ranking = @movie.rankings.build(user_id: current_user.id) #????
 
     end

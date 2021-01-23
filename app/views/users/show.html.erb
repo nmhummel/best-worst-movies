@@ -10,7 +10,7 @@
       <b>Email:</b> <%= @user.email %><br>
       <b>Favorite Schlock Flop:</b> <i><%= @user.best_worst_movie %></i><br>
      
-      <% if logged_in? %>
+      <% if logged_in? || is_admin? %>
        <%= link_to "Edit Profile", edit_user_path %> <br><br>
        <%= button_to "Logout", logout_path, method: 'delete' %>
       <%end%>

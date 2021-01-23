@@ -22,17 +22,9 @@
         <h3>No rankings just yet; would you like to add the first?</h3> 
     <% else %>
       <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %>
+      <br>
+      <%= render partial: "rankings/index", locals: {rank: @movie.rankings} %>
     <% end %>
   </div>
   
-  </div class="box3">
-    <h2 class="review_title">Top Comments for <i><%= @movie.title %></i></h2>
-    <% @rankings.each do |r| %>
-      <h4>"<%= r.comments %>"</h4><br><br>
-    <% end %>
-  </div>
-
-
-
-
 </div>

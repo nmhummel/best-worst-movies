@@ -12,7 +12,7 @@ class Ranking < ApplicationRecord
     scope :avg_plot, -> {self.average(:plot)}
     scope :avg_effort, -> {self.average(:effort)}
     scope :avg_average, -> {self.average(:average)}
-    scope :rewatch_avg, -> {self.where(watch_again: true).count / self.count }
+    scope :rewatch_avg, -> {self.where(watch_again: true).count *100 / self.count }
 
   
     def overall_average
@@ -25,6 +25,13 @@ class Ranking < ApplicationRecord
         Ranking.where(watch_again: true).count * 100 / Ranking.count
     end
 
+    def average_average
+        if current_movie.rankings.avg_average.nil?
+            "Not enough data to compute."
+        else 
+            current_movie.rankings.avg_average.round(2)
+        end
+    end
 
 
 

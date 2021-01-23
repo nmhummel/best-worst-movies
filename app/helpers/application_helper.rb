@@ -8,13 +8,8 @@ module ApplicationHelper
         !!current_user
     end
 
-    # def current_movie
-    #     @current_movie ||= Movie.find_by_id(:id) 
-    # end
-
     def is_admin?
         current_user.admin == true
-        
     end
 
     def user_movies
