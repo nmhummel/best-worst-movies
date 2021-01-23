@@ -1,50 +1,38 @@
-<div class="container">
-  <div class="item">
-  <% if @movie.poster.attached? %>
-    <%= image_tag url_for(@movie.poster.variant(resize: "150x200").processed.service_url) %>
-  <%else%>
-    <%= image_tag("stinky-cheese.png", :size => '150x200') %>
-  <%end%>
+<div class="bigbox">
+  <div class="box1">
+
+    <%= poster? %>
+    
   <br>
-    <strong>Title:</strong> <i><%= @movie.title %></i>  <br>
+    <strong>Title:</strong> <i><%= @movie.title %></i><br>
     <strong>Genre:</strong> <%= @movie.genre %> <br>
     <strong>Rating:</strong> <%= @movie.rating %>   <br>
     <strong>Runtime:</strong> <%= @movie.runtime %><br>
     <strong>Year:</strong> <%= @movie.year %>   <br>
     <b>Created by:</b> <%= @movie.user.username %>  <br>
     <% if is_admin? || @movie.user_id == current_user %>
-      <%= link_to "Edit Movie", edit_movie_path(@movie) %> <br><br>
+      <%= link_to "Edit Movie", edit_movie_path(@movie) %> <br>
       <%= button_to "Delete Movie", movie_path, method: 'delete' %></td>
     <% end %>
-
-    <hr color="black">
-
-    <h5><%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %> </h5> 
-
+  </div>
+    
+  </div class="box2">
+    <%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %>
     <% if @movie.rankings.empty? %>
         <h3>No rankings just yet; would you like to add the first?</h3> 
     <% else %>
       <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %>
     <% end %>
   </div>
-</div>
-   
   
-<table>
-  <tr>
-    <td>
-      <br><br>
-      <h2 class="review_title">Top Comments for <i><%= @movie.title %></i></h2>
-    </td>
-  </tr>
-  <tr>
-    <td><% @rankings.each do |r| %>
+  </div class="box3">
+    <h2 class="review_title">Top Comments for <i><%= @movie.title %></i></h2>
+    <% @rankings.each do |r| %>
       <h4>"<%= r.comments %>"</h4><br><br>
     <% end %>
-    </td>
-  </tr>
-</table>
+  </div>
 
 
 
 
+</div>

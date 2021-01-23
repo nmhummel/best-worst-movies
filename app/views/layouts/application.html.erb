@@ -10,32 +10,25 @@
   </head>
 
   <body>
-  <header class="masthead clear">
+  
     <%= render 'layouts/header' %>
-    </header>
     <br><br>
 
-    
-		    <% flash.each do |name, msg| %>
+		<% flash.each do |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert alert-info") %>
-		  <% end %>
+		<% end %>
 
-<main class="main-area">
-  <div class="centered">
-    <section class="cards">
-      <article class="card">
+  <div class="main-area">  
+    <div class="centered">
 
 		    <%= yield %>
 
-    </section>
-  </div>
-</main>  
+      </div>
+  </div>  
      
     <br><br>
     <%= render 'layouts/footer' %>
 	
-
-
   </body>
 </html>
 

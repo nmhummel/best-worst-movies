@@ -8,12 +8,13 @@
         <% else %>
            <%= image_tag("tommy-wiseau.jpg", :size => '75') %>
         <%end%>
-    
-        Username: <%= u.username %>
+        <br>
+        <b>Username:</b> <%= u.username %>
           <% if u.admin? %>
             <%= mail_to u.email, "(Admin)" %>
           <% end %>
-        <br>Favorite Schlock Flop: <i><%= u.best_worst_movie %></i><br><br>
+        <br>
+        <b>Favorite Schlock Flop:</b> <i><%= u.best_worst_movie %></i><br><br>
         </div>
     <% end %>
 
