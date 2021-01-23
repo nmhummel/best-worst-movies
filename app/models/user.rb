@@ -17,4 +17,8 @@ class User < ApplicationRecord
         end
     end
 
+    def self.abc
+        order(username: :asc).includes([avatar_attachment: :blob])
+    end
+
 end

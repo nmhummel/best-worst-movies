@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def index
-        @users = User.all.includes([:avatar_attachment])
+        @users = User.abc
     end
 
     def new

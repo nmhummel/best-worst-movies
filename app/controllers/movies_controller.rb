@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
         if params[:search]
             @movies = Movie.abc.search_by_name(params[:search])
         else
-            @movies = Movie.abc.all
+            @movies = Movie.abc
         end
     end
     

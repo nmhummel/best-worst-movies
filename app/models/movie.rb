@@ -9,7 +9,7 @@ class Movie < ApplicationRecord
     scope :order_by_average, -> {Movie.left_joins(:rankings).group(:id).order('avg(average) desc')}
     
     def self.abc
-        order(title: :asc).includes([:poster_attachment])
+        order(title: :asc).includes([poster_attachment: :blob])
     end
 
     # def not_a_duplicate
