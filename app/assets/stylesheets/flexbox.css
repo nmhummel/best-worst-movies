@@ -50,7 +50,8 @@ body{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-
+    vertical-align: top;
+    padding: 3px;
 }
 
 .user-info{
@@ -61,12 +62,25 @@ body{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-content: center;
+    text-align: center;
+    text-justify: auto;
+    vertical-align: top;
+    align-items: flex-start;
 }
 
 .user-movies, 
 .user-rankings {
-    border: 2px black solid;
+    border: 1px black solid;
     padding: 13px;
+    flex-wrap: wrap;
+    display:flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    vertical-align: top;
 }
 
 /* movie show page */

@@ -1,8 +1,18 @@
 module ApplicationHelper
 
     def current_user
-        @current_user ||= User.find_by_id(session[:user_id]) #if session[:user_id]
+        @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end
+    
+
+    def logged_in?
+        !!current_user
+    end
+
+    def is_authorized?
+        !!logged_in? && (current_user.admin == true || current_movie.user_id == current_user)
+    end
+    
 
     def current_movie
         @current_movie ||= Movie.find_by_id(:id) 
@@ -28,12 +38,5 @@ module ApplicationHelper
         end
     end
 
-    def user_is_authenticated
-        !!current_user
-    end
-
-    def is_admin?
-        current_user.admin == true 
-    end
-    
+ 
 end

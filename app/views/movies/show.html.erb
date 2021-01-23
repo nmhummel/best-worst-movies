@@ -10,10 +10,10 @@
     <strong>Runtime:</strong> <%= @movie.runtime %><br>
     <strong>Year:</strong> <%= @movie.year %>   <br>
     <b>Created by:</b> <%= @movie.user.username %>  <br>
-    <% if is_admin? || @movie.user_id == current_user %>
+    <% if is_authorized? %>
       <%= link_to "Edit Movie", edit_movie_path(@movie) %> <br>
       <%= button_to "Delete Movie", movie_path, method: 'delete' %></td>
-    <% end %>
+      <%end%>
   </div>
     
   </div class="box2">

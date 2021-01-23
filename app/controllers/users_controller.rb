@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       end
 
     def show
-        if user_is_authenticated
+        if logged_in?
           @user = User.find(params[:id])
           @movies = Movie.all
           @rankings = Ranking.all

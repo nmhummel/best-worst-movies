@@ -10,7 +10,7 @@
       <b>Email:</b> <%= current_user.email %><br>
       <b>Favorite Schlock Flop:</b> <i><%= current_user.best_worst_movie %></i><br>
      
-      <% if user_is_authenticated %>
+      <% if logged_in? %>
        <%= link_to "Edit Profile", edit_user_path %> <br><br>
        <%= button_to "Logout", logout_path, method: 'delete' %>
       <%end%>
@@ -18,13 +18,13 @@
    <br><br>
    <div class="user-movies-rankings">
       <div class="user-movies">
-      Your Created Movies
+      Your Created Movies<br>
       <% user_movies.each do |um| %>
          <%= link_to "#{um[:title]}", movie_path(um)%><br>
       <%end%>
       </div>
       <div class="user-rankings">
-      Your Ranked Movies
+      Your Ranked Movies<br>
       <%current_user.ranked_movies.each do |rm| %>
          <%= link_to "#{rm[:title]}", movie_path(rm)%><br>
       <%end%>
