@@ -4,7 +4,7 @@
     == AVERAGE SCORES == <br>
     <font size ="2">(Currently ranked by <%= rank.ids.count %> users)</font>
     <br>
-      <b>The Average of All Averages: overall_average<br></b>
+      <b>The Average of All Averages: <%= rank.avg_average.round(1) %><br></b>
       Editing: <%= rank.avg_editing %> <br>
       Cinematography: <%= rank.avg_cinematography %><br>
       Acting: <%= rank.avg_acting %><br>
@@ -12,8 +12,8 @@
       Sound: <%= rank.avg_sound %><br>
       Plot: <%= rank.avg_plot %><br>
       Effort: <%= rank.avg_effort %><br>
-      <b>Percentage of people who would watch it again: FIX THIS<br></b>
-    
+      <b>Percentage of people who would watch it again: <%= rank.rewatch_avg %><br></b>
+   
     <br>
   </p>
 

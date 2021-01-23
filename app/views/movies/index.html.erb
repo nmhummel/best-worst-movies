@@ -3,23 +3,21 @@
 <center><%= cu_header %><center>
 <br><br>
 <div class = "all-movies">
-     <% @movies.each do |m| %>
-          <div class="movie">
-               <% if m.poster.attached? %>
-                  <%= image_tag m.poster.variant(resize: "150x200") %> 
-               <%else%>
-                  <%= image_tag("stinky-cheese.png", :size => '150x200') %>
-               <%end%><br>
-               <%= link_to "View and Rank", movie_path(m.id) %> <br>
-               Title: <i><%= m.title %></i><br>
-               Genre: <%= m.genre %><br>
-               Rating: <%= m.rating %><br>
-               Runtime: <%= m.runtime %><br>
-               Year Released: <%= m.year %><br><br><br>
-            </div>
-         
-     <% end %>
-
+   <% @movies.each do |m| %>
+      <div class="movie">
+         <% if m.poster.attached? %>
+            <%= image_tag m.poster.variant(resize: "150x200") %> 
+         <%else%>
+            <%= image_tag("stinky-cheese.png", :size => '150x200') %>
+         <%end%><br>
+         <%= link_to "View and Rank", movie_path(m.id) %> <br>
+         Title: <i><%= m.title %></i><br>
+         Genre: <%= m.genre %><br>
+         Rating: <%= m.rating %><br>
+         Runtime: <%= m.runtime %><br>
+         Year Released: <%= m.year %><br><br><br>
+      </div>
+   <% end %>
 </div>
 
 </div>

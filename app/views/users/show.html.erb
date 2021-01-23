@@ -6,9 +6,9 @@
           <%= image_tag("tommy-wiseau.jpg", :size => '150x150') %> 
       <%end%>
       <br><br>
-      <b>Username:</b> <%= current_user.username %><br>
-      <b>Email:</b> <%= current_user.email %><br>
-      <b>Favorite Schlock Flop:</b> <i><%= current_user.best_worst_movie %></i><br>
+      <b>Username:</b> <%= @user.username %><br>
+      <b>Email:</b> <%= @user.email %><br>
+      <b>Favorite Schlock Flop:</b> <i><%= @user.best_worst_movie %></i><br>
      
       <% if logged_in? %>
        <%= link_to "Edit Profile", edit_user_path %> <br><br>
