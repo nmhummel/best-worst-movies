@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  
+  get '*path', to: redirect('/'), constraints: lambda { |req|
+    req.path.exclude? 'rails/active_storage'
+  } 
 
 end

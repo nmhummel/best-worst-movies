@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
     rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
     include ApplicationHelper
 
-    # def route_not_found
-    #     render file: Rails.public_path.join('404.html'), status: :not_found, layout: false
-    # end
-
     def verified_user
         redirect_to '/' unless user_is_authenticated
     end
@@ -22,20 +18,6 @@ class ApplicationController < ActionController::Base
     
     ########################
 
-    def login(user)
-        session[:user_id] = user.id
-    end
-
-    def page_not_found
-        return render 'errors/page_not_found', status: 404
-    end
-
-    def redirect_if_not_admin # Admin actions (including /users) - skip redirect_if_not_permitted and add this when all error pages are operational
-        if !is_admin?
-            redirect_to '/'
-        end
-    end
-  
     def check_valid(object)
         if object.errors.messages.empty?
             flash[:alert] = nil

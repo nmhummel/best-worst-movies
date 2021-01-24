@@ -1,7 +1,8 @@
 class Ranking < ApplicationRecord
     belongs_to :movie
     belongs_to :user
-    validates  :editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, length: {within: 1..5, message: "Please choose between 1-5"}
+    validates :editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5, message: ": please choose between 1-5"}
+    validates :watch_again, :comments, presence: true
     validates :movie, uniqueness: { scope: :user, message: "has already been ranked by you." }
     before_save :overall_average
     scope :avg_editing, -> {self.average(:editing).round(1)}
@@ -12,9 +13,8 @@ class Ranking < ApplicationRecord
     scope :avg_plot, -> {self.average(:plot).round(1)}
     scope :avg_effort, -> {self.average(:effort).round(1)}
     scope :avg_average, -> {self.average(:average).round(1)}
-    #scope :rewatch_avg
-
-  
+ 
+    
     def overall_average
         #this takes overall score for the 7 categories
         numbers = self.attributes.reject{|k,v| v.class != Integer || k.include?("id") || k == "average"}
