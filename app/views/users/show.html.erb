@@ -18,13 +18,14 @@
    <br><br>
    <div class="user-movies-rankings">
       <div class="user-movies">
-      Your Created Movies<br><br>
+      Your Created Movies<br>
       <% user_movies.each do |um| %>
          <%= link_to "#{um[:title]}", movie_path(um)%><br>
       <%end%>
       </div>
+      <br>
       <div class="user-rankings">
-      Your Ranked Movies<br><br>
+      Your Ranked Movies<br>
       <%current_user.ranked_movies.each do |rm| %>
          <%= link_to "#{rm[:title]}", movie_path(rm)%><br>
       <%end%>

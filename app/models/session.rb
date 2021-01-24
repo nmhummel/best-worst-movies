@@ -6,4 +6,6 @@ class Session < ApplicationRecord
   
       where("updated_at < ?", time.ago.to_s(:db)).delete_all
     end
+
+    
 end

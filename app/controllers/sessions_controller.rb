@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     # end
 
     def home
+        @rando = Movie.find(rand(Movie.count))
     end
 
     def new
