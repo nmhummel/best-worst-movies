@@ -2,13 +2,13 @@
 <h1 align="center">Your Favorite Flops Reviewed</h1>
 <center><%= cu_header %><center><br><br>
 
-
+<div class="all-movies">
    <% @movies.each do |m| %>
    <div class="card">  
       <% if m.poster.attached? %>
          <%= image_tag m.poster.variant(resize: "150x200"), class: "card-img-top" %> 
       <%else%>
-         <%= image_tag("stinky-cheese.png", :size => '150x200', class: "card-img-top")  %>
+         <%= image_tag("trashcans/TrashCanBlackSmell.png", :size => '150x200', class: "card-img-top")  %>
       <%end%>
       <div class="card-body">
          <h4 class="card-title"><%= link_to "View and Rank", movie_path(m.id), class: "btn btn-success" %></h4>
@@ -22,5 +22,5 @@
       </div>
    </div>
    <% end %>
-
+</div>
 
