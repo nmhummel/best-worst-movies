@@ -32,6 +32,8 @@ gem "mini_magick"
 gem 'roo'
 #spreadsheet
 
+gem 'bootstrap-sass', '3.3.7'
+
 gem 'searchkick'
 #optimize search bar
 

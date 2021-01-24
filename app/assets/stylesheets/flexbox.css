@@ -17,6 +17,10 @@ body{
     display: block;
 }
 
+.homepage img {
+    border: 0px;
+}
+
 .main-area {
     width: 80%;
     padding-left: 50px;
@@ -108,7 +112,9 @@ img{
     width: 150;
     height: 200;
 }
+
 /* movie index */
+
 .all-movies{
     display:flex;
     flex-direction: row;
@@ -123,7 +129,7 @@ img{
     display:flex;
     flex-direction: column;
     flex-wrap: wrap;
-    flex: 1 0 21%; /* explanation below */
+    flex: 1 0 21%; 
     max-width: 200px;
     text-align:left;
     padding: 5px;
@@ -136,10 +142,12 @@ img{
     width: 150;
     height: 200;
 }
+
 /* navbar */
 
 #navbar{
     padding: 15px;
+    vertical-align: middle;
 }
 
 img {
@@ -158,6 +166,7 @@ nav{
 #navbar li {
     float: left;
     padding: 1px;
+    vertical-align: middle;
 }
 
 #newnav{
