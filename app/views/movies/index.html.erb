@@ -1,9 +1,7 @@
 <br>
 <table align="center">
    <tr>
-   <td><%= image_tag("Logo3.png") %></td>
-   <td><h1 align="center">Your Favorite Flops Reviewed</h1></td>
-   <td><%= image_tag("Logo2.png") %></td>
+   <td align-items="center"><%= image_tag("Logo3.png", :size => "400x200") %></td>
    </tr>
 </table>
 <br><br>
@@ -16,7 +14,7 @@
       <% if m.poster.attached? %>
          <%= image_tag m.poster.variant(resize: "150x200"), class: "card-img-top" %> 
       <%else%>
-         <%= image_tag("stinky-cheese.png", :size => '150x200', class: "card-img-top")  %>
+         <%= image_tag("trashcans/TrashCanOGLid.png", :size => '150x200', class: "card-img-top")  %>
       <%end%>
       <div class="card-body">
          <h4 class="card-title"><%= link_to "View and Rank", movie_path(m.id), class: "btn btn-success" %></h4>

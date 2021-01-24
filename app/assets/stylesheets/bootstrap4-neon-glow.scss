@@ -45,6 +45,7 @@
 html {
   font-family: sans-serif;
   line-height: 1.15;
+  height: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
@@ -52,14 +53,18 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
 body {
-  margin: 30px 30px 30px 30px;
+  margin: 60px 60px 60px 60px;
+  padding: 60px 60px 60px 60px;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont,  Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #e4e2ff;
   text-align: left;
-  background-color: #0c0d16; }
+  background: #0c0d16 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg)  center no-repeat;
+  background-size: cover;
+  margin:0;
+ }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -4095,6 +4100,7 @@ input[type="button"].btn-block {
   flex-wrap: wrap;
   flex-grow: 1;
   flex-basis: auto;
+  align-content: flex-start; 
   width: auto;
   word-wrap: break-word;
   padding: 5px 5px 5px 5px;
@@ -4107,8 +4113,8 @@ input[type="button"].btn-block {
 }
 
 .box1 img{
-  width: 400px;
-  height: 600px;
+  width: 300px;
+  height: 500px;
   align-content: center;
 }
 
@@ -4120,10 +4126,11 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  vertical-align: top;
   flex-basis: 30%;
-  
+  align-items: flex-start; 
   justify-content: center;
-  align-content: center;
+  align-content: flex-start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;

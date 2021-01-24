@@ -1,5 +1,5 @@
-<div class="user-page">
-   <div class="user-info">
+<div class="all-movies">
+   <div class="box1">
       <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar.variant(resize: "150x150") %> 
          <% else %>
@@ -15,20 +15,21 @@
        <%= button_to "Logout", logout_path, method: 'delete' %>
       <%end%>
    </div>
+
    <br><br>
-   <div class="user-movies-rankings">
-      <div class="user-movies">
+
+   <div class="box2">
       Your Created Movies<br>
       <% user_movies.each do |um| %>
          <%= link_to "#{um[:title]}", movie_path(um)%><br>
       <%end%>
-      </div>
-      <br>
-      <div class="user-rankings">
-      Your Ranked Movies<br>
-      <%current_user.ranked_movies.each do |rm| %>
-         <%= link_to "#{rm[:title]}", movie_path(rm)%><br>
-      <%end%>
-      </div>
    </div>
+
+   <div class="box3">
+   Your Ranked Movies<br>
+   <%current_user.ranked_movies.each do |rm| %>
+      <%= link_to "#{rm[:title]}", movie_path(rm)%><br>
+   <%end%>
+   </div>
+   
 </div> 
