@@ -12,16 +12,6 @@ class Movie < ApplicationRecord
         order(title: :asc).includes([poster_attachment: :blob])
     end
 
-    # def not_a_duplicate
-    #     if Movie.find_by(title: title)
-    #         errors.add(:title, 'already exists in the database.')
-    #     end
-    # end
-
-    # def self.best_worst
-    #     order(avg: :desc)
-    # end
-
  
 
 end

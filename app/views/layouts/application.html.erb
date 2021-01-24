@@ -9,8 +9,6 @@
     <%= stylesheet_link_tag 'bootstrap4-neon-glow', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
-
   <body>
   
     <%= render 'layouts/header' %>
@@ -20,12 +18,10 @@
 			<%= content_tag(:div, msg, class: "alert alert-info") %>
 		<% end %>
 
-
-		  <%= yield %>
-
+		<%= yield %>
 
     <br><br>
-    <%= render 'layouts/footer' %>
+   
 	
   </body>
 </html>

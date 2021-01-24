@@ -1,7 +1,8 @@
+<br><br><br>
 <div class="bigbox">
   <div class="box1">
+  <br>
     <%= poster? %>
-    
   <br>
     <strong>Title:</strong> <i><%= @movie.title %></i><br>
     <strong>Genre:</strong> <%= @movie.genre %> <br>
@@ -11,12 +12,12 @@
     <b>Created by:</b> <%= @movie.user.username %>  <br>
     <% if authorized? || (logged_in? && is_admin?) %>
       <%= link_to "Edit Movie", edit_movie_path(@movie) %> <br>
-      <%= button_to "Delete Movie", movie_path, method: 'delete' %></td>
+      <%= button_to "Delete Movie", movie_path, class: "btn btn-success", method: 'delete' %></td>
       <%end%>
+    <%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %>
   </div>
     
   </div class="box2">
-    <%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %>
     <% if @movie.rankings.empty? %>
         <h3>No rankings just yet; would you like to add the first?</h3> 
     <% else %>

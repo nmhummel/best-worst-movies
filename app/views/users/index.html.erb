@@ -1,13 +1,15 @@
 <br><br>
-<div class="users">
+<div class="all-movies">
 
     <% @users.each do |u| %>
-      <div class="userbox">
+      <div class="user-card">
+      <div class ="user-card-img">
         <% if u.avatar.attached? %>
-           <%= image_tag u.avatar.variant(resize: "75x75") %> 
+           <%= image_tag u.avatar.variant(resize: "150x150") %> 
         <% else %>
-           <%= image_tag("tommy-wiseau.jpg", :size => '75') %>
+           <%= image_tag("tommy-wiseau.jpg", :size => '150') %>
         <%end%>
+        </div>
         <br>
         <b>Username:</b> <%= u.username %>
           <% if u.admin? %>

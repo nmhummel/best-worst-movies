@@ -12,6 +12,14 @@ module ApplicationHelper
         current_user.admin == true
     end
 
+    def verified_user
+        redirect_to '/' unless user_is_authenticated
+    end
+    
+    def require_login
+        return redirect_to(controller: 'session', action: 'new') unless user_is_authenticated
+    end
+
     def user_movies
         @movies = Movie.where(user_id: session[:user_id])
         @movies.each do |one|

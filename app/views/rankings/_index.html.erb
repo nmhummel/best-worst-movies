@@ -11,8 +11,8 @@
       <b>Plot:</b> <%= rank.plot %><br>
       <b>Effort:</b> <%= rank.effort %><br>
       <b>Would watch it again:</b> <i><%= rank.watch_again == true ? "Yes...?" : "Heck no!" %></i><br>
-      <b>Thoughts/Additional Rankings:</b><br><i><%= rank.comments.empty? ? "N/A" : rank.comments %></i><br>
-      <br>
+      <b>Thoughts/Additional Rankings:</b><br><i><%= rank.comments.empty? ? "N/A" : rank.comments %></i>
+      <br><br>
     <% end %>
     
 </p>
