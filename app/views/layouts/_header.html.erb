@@ -1,22 +1,24 @@
+<nav>
 
-    <ul>
-    <li><%= link_to "Home", '/' %></li>
+
+    <ul class="nav nav-pills">
+    <li class="nav-item"><%= link_to "Home", '/', class: "btn btn-outline-success" %></li>
     <% if !current_user %>
-      <li><%= link_to "Log In", login_path %></li> 
-      <li><%= link_to "Sign Up", new_user_path %></li>
-      <li><%= link_to "View Movies", movies_path %></li> 
+      <li class="nav-item"><%= link_to "Log In", login_path, class: "btn btn-outline-success" %></li> 
+      <li class="nav-item"><%= link_to "Sign Up", new_user_path, class: "btn btn-outline-success" %></li>
+      <li class="nav-item"><%= link_to "View Movies", movies_path, class: "btn btn-outline-success" %></li> 
     <% else %>
-      <li><%= link_to "See All Users", users_path %></li>
-      <li><%= link_to "View Movies", movies_path %></li>
-      <li><%= link_to "Create Movie", new_movie_path %></li>
-      <li><%= link_to "#{current_user.username}'s Profile Page", user_path(current_user) %></li>
+      <li class="nav-item"><%= link_to "See All Users", users_path, class: "btn btn-outline-success" %></li>
+      <li class="nav-item"><%= link_to "View Movies", movies_path, class: "btn btn-outline-success" %></li>
+      <li class="nav-item"><%= link_to "Create Movie", new_movie_path, class: "btn btn-outline-success" %></li>
+      <li class="nav-item"><%= link_to "#{current_user.username}'s Profile Page", user_path(current_user), class: "btn btn-outline-success" %></li>
     <% end %>
     <%= form_tag movies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
         <%= text_field_tag :search %>
-        <%= submit_tag "Search Movies", name: nil, class: "btn btn-default" %>
+        <%= submit_tag "Search Movies", name: nil, class: "btn btn-outline-success" %>
     <% end %>
     </ul>
 
   <div id="clearfix"></div>
-</nav>
+
 

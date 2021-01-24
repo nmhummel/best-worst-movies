@@ -1,23 +1,26 @@
-<div class="center">
-<h1 align="center">Your Favorite Flops Reviewed</h1>
-<center><%= cu_header %><center>
-<br><br>
-<div class = "all-movies">
-   <% @movies.each do |m| %>
-      <div class="movie">
-         <% if m.poster.attached? %>
-            <%= image_tag m.poster.variant(resize: "150x200") %> 
-         <%else%>
-            <%= image_tag("stinky-cheese.png", :size => '150x200') %>
-         <%end%><br>
-         <%= link_to "View and Rank", movie_path(m.id) %> <br>
-         Title: <i><%= m.title %></i><br>
-         Genre: <%= m.genre %><br>
-         Rating: <%= m.rating %><br>
-         Runtime: <%= m.runtime %><br>
-         Year Released: <%= m.year %><br><br><br>
-      </div>
-   <% end %>
-</div>
 
-</div>
+<h1 align="center">Your Favorite Flops Reviewed</h1>
+<center><%= cu_header %><center><br><br>
+
+
+   <% @movies.each do |m| %>
+   <div class="card">  
+      <% if m.poster.attached? %>
+         <%= image_tag m.poster.variant(resize: "150x200"), class: "card-img-top" %> 
+      <%else%>
+         <%= image_tag("stinky-cheese.png", :size => '150x200', class: "card-img-top")  %>
+      <%end%>
+      <div class="card-body">
+         <h4 class="card-title"><%= link_to "View and Rank", movie_path(m.id), class: "btn btn-success" %></h4>
+            <p class="card-text">
+            <b>Title:</b> <i><%= m.title %></i><br>
+            <b>Genre:</b> <%= m.genre %><br>
+            <b>Rating:</b> <%= m.rating %><br>
+            <b>Runtime:</b> <%= m.runtime %><br>
+            <b>Year Released:</b> <%= m.year %>
+            </p>
+      </div>
+   </div>
+   <% end %>
+
+

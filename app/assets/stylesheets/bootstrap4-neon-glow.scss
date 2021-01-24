@@ -78,6 +78,42 @@ p {
   margin-top: 0;
   margin-bottom: 1rem; }
 
+  #navbar{
+    padding: 15px;
+    vertical-align: middle;
+}
+
+img {
+    align-items: baseline;
+    border: 5px solid #e83e8c;
+
+}
+
+nav{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#navbar li {
+    float: left;
+    padding: 1px;
+    vertical-align: middle;
+}
+
+#newnav{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
@@ -2226,6 +2262,7 @@ textarea.form-control {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 6px;
+  margin: 15px 15px 15px 15px;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3559,7 +3596,7 @@ input[type="button"].btn-block {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  padding-left: 0;
+  padding: 15;
   margin-bottom: 0;
   list-style: none; }
 
@@ -3610,7 +3647,11 @@ input[type="button"].btn-block {
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  text-align: center; }
+  text-align: center; 
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 5px;
+}
 
 .nav-justified .nav-item {
   -webkit-flex-basis: 0;
@@ -4026,7 +4067,10 @@ input[type="button"].btn-block {
       -ms-flex-direction: column;
           flex-direction: column;
   min-width: 0;
+  max-width: 250px;
   word-wrap: break-word;
+  padding: 0px;
+  margin-bottom: 15px;
   background-color: #32334a;
   background-clip: border-box;
   border: 1px solid #151623;
@@ -4100,7 +4144,8 @@ input[type="button"].btn-block {
   padding: 1.25rem; }
 
 .card-img {
-  width: 100%;
+  width: 150;
+  height: 200;
   border-radius: calc(6px - 1px); }
 
 .card-img-top {
