@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    # before_action :redirect_if_logged_in, only: [:new, :create]
 
     def omniauth
         user = User.from_omniauth(request.env['omniauth.auth'])

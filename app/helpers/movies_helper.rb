@@ -21,4 +21,11 @@ module MoviesHelper
     def authorized?
       @movie.user_id == current_user
     end
+
+    def rewatch_percent
+      true_count = @movie.rankings.where(watch_again: true).count.to_f
+      total_count = @movie.rankings.count.to_f
+      percentage = (true_count / total_count).round(2)*100
+  end
+
 end

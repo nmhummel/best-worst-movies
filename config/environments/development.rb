@@ -75,8 +75,8 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = true
+    Bullet.enable = false
+    Bullet.alert = false
     Bullet.console = true
     Bullet.rails_logger = true
     Bullet.add_footer = true
