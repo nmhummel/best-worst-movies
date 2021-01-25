@@ -40,7 +40,6 @@ class RankingsController < ApplicationController
     def destroy
         @ranking = Ranking.find(params[:id])
         @ranking.destroy
-    
         redirect_to '/'
     end
 

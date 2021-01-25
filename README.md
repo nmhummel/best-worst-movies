@@ -1,6 +1,9 @@
 # SCHLOCK FLOP - worst.movies.ever.
 ## A Ruby on Rails application
 
+## Blog Post: https://dev.to/nmhummel/the-paths-of-least-resistance-3k1i
+## Video Walk-thru: https://youtu.be/9CjF4UbVIog
+
 **Description:**
 Making fun of bad movies is one of my favorite things to do. As an avid fan of MST3K and RiffTrax, I have a bad, riffed movie playing 75% of my day. 
 This database is dedicated to those horrible movies that make us question our sanity, our sense of humor, and just how someone earned the money to make
@@ -13,9 +16,6 @@ such a horrific, monstrosity of a film.
 * Run $rails db:seed AND $rails db:migrate to fill the database.
 * System dependencies include a console of some sort: Windows Power Shell, Command Prompt, Ubuntu, etc.
 * Start your rails server with $rails s and launch your localhost:3000 or whatever http:// is provided.
-
-## Blog Post: [https://dev.to/nmhummel/it-s-a-mad-mad-world-4mi9](https://dev.to/nmhummel/it-s-a-mad-mad-world-4mi9)
-## Video Walk-thru: [https://youtu.be/Lib6SwjtsPo](https://youtu.be/Lib6SwjtsPo)
 
 **Copyright:**
 I own nothing of the included movies in the database. This is purely for recreational purposes.
