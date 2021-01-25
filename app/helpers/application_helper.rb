@@ -16,5 +16,8 @@ module ApplicationHelper
         redirect_to '/login' if !logged_in?
     end
 
+    def authorized_movie?
+        logged_in? && (is_admin? || @movie.user_id == current_user)
+    end
 
 end
