@@ -20,25 +20,45 @@ module ApplicationHelper
         return redirect_to(controller: 'session', action: 'new') unless user_is_authenticated
     end
 
+    # def user_movies
+    #     @movies = Movie.where(user_id: @user.id)
+    #     @movies.each do |one|
+    #         if one.nil?
+    #             "No movies yet"
+    #         else
+    #             one
+    #         end 
+    #     end
+    # end
+
+    # def user_rankings
+    #     @rankings = Ranking.where(user_id: @user.id)
+    #     @rankings.each do |one|
+    #         if one.nil?
+    #             "No rankings yet"
+    #         else
+    #             one
+    #         end 
+    #     end
+    # end
+#byebug
+    
     def user_movies
-        @movies = Movie.where(user_id: session[:user_id])
-        @movies.each do |one|
-            if one.nil?
-                "No movies yet"
-            else
-                one
-            end 
-        end
+        @user_movies = Movie.where(user_id: @user.id)
+        # @movies.each do |one|
+        #     if one.nil?
+        #         "No movies yet"
+        #     else
+        #         one
+        #     end 
+        # end
     end
 
-    def user_rankings
-        ranking = @rankings.find_by(user_id: current_user)
-        if ranking.nil?
-            "No rankings yet"
-        else 
-            ranking
-        end
-    end
+    # def user_rankings
+    #     #@user_rankings = @user.rankings.movie_id
+    #     @user_rankings = Ranking.where(user_id: @user.id)
+
+    # end
 
 
 end

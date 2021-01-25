@@ -27,8 +27,8 @@
 
    <div class="box3">
    Your Ranked Movies<br>
-   <%current_user.ranked_movies.each do |rm| %>
-      <%= link_to "#{rm[:title]}", movie_path(rm)%><br>
+   <% @user.ranked_movies.each do |rm| %>
+         <%= link_to "#{rm[:title]}", movie_path(rm)%><br>
    <%end%>
    </div>
    

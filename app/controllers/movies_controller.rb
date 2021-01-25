@@ -37,6 +37,7 @@ class MoviesController < ApplicationController
         #byebug
         @movie = Movie.find(params[:id])
         @rankings = @movie.rankings #.order_by_average
+
     end
 
     def edit

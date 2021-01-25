@@ -26,10 +26,14 @@ class UsersController < ApplicationController
           @user = User.find(params[:id])
           @movies = Movie.all
           @rankings = Ranking.all
+          @user_movies = Movie.where(user_id: @user.id)
+          @user_rankings = Ranking.where(user_id: @user.id)
         else
           redirect_to '/'
         end
     end
+
+    
 
     def edit
       #byebug
