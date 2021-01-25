@@ -20,12 +20,12 @@ Specs:
 - [x] Include login (how e.g. Devise) = new Session method and view page
 - [x] Include logout (how e.g. Devise) = defined route and button for logout
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth) = Google OAuth has been utilized
-- [x] Include nested resource show or index (URL e.g. users/2/recipes) = 
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [X] Include nested resource show or index (URL e.g. users/2/recipes) = I have nested routes, but their show and index pages are nested in their parent view files, so the methods to define the routes are not active. Ex. My movie show page has the ranking's _index and _show page on it, so you can see the movie's info, its ranking averages, and ALL rankings
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new) = movies/57/rankings/new
+- [x] Include form display of validation errors (form URL e.g. /recipes/new) = rescue/not_found.html.erb
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate

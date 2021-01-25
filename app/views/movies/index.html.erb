@@ -1,7 +1,16 @@
 <br>
 <table align="center">
    <tr>
-   <td align-items="center"><%= image_tag("Logo3.png", :size => "400x200") %></td>
+      <td align="center"><%= image_tag("Logo3.png", :size => "400x200") %></td>
+   </tr>
+   <tr><td><br></td></tr>
+   <tr>
+      <td align="center" margin-top="5px">(/SHläk/ /fläp/): A horrible movie that probably went straight to video.<br>
+      <p>Search for a movie in the bar above. Log in or sign up to rank movies, but remember:<br>
+      <i>the worst a movie is in a category, the higher you rank it.</i> </p>
+      <h4>Movie Population: <%= Movie.count %><br>
+      Contributing Residents: <%= User.count %></h4>
+      </td>
    </tr>
 </table>
 <br><br>

@@ -2,7 +2,7 @@ module MoviesHelper
 
     def cu_header
         if !current_user
-          link_to "Sign up to Rank a Movie!", signup_path
+          link_to "Sign Up or Log In to Rank a Movie!", signup_path
         end
     end
 
