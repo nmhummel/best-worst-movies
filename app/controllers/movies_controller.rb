@@ -1,14 +1,6 @@
 class MoviesController < ApplicationController
     include MoviesHelper
 
-    # def search
-    #     if params[:search].present?
-    #       @movies = Movie.search(params[:search])
-    #     else
-    #       @movies = Movie.all
-    #     end
-    #   end
-
     def index
         if params[:search]
             @movies = Movie.abc.search_by_name(params[:search])
@@ -34,15 +26,14 @@ class MoviesController < ApplicationController
     end
 
     def show
-        #byebug
         @movie = Movie.find(params[:id])
-        @rankings = @movie.rankings #.order_by_average
+        @rankings = @movie.rankings 
 
     end
 
     def edit
         @movie = Movie.find(params[:id])
-        @ranking = @movie.rankings.build(user_id: current_user.id) #????
+        @ranking = @movie.rankings.build(user_id: current_user.id) 
         
     end
 

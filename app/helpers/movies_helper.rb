@@ -18,10 +18,6 @@ module MoviesHelper
       @current_movie ||= Movie.find_by_id(:id) 
     end
 
-    def authorized?
-      @movie.user_id == current_user
-    end
-
     def rewatch_percent
       true_count = @movie.rankings.where(watch_again: true).count.to_f
       total_count = @movie.rankings.count.to_f

@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-         # if (user = User.create(user_params))
             session[:user_id] = @user.id
             @user.avatar.purge
             @user.avatar.attach(params[:user][:avatar])
@@ -22,28 +21,18 @@ class UsersController < ApplicationController
       end
 
     def show
-        if logged_in?
-          @user = User.find(params[:id])
-          @movies = Movie.all
-          @rankings = Ranking.all
-          @user_movies = Movie.where(user_id: @user.id)
-          @user_rankings = Ranking.where(user_id: @user.id)
-        else
-          redirect_to '/'
-        end
+        redirect_if_not_logged_in
+        @user = User.find(params[:id])
+        @user_movies = Movie.where(user_id: @user.id)
     end
 
-    
-
     def edit
-      #byebug
       @user = User.find(params[:id])
       if @user != current_user
         flash[:message] = "Not your profile, so you can't edit it."
         redirect_to user_path
       end
-      #@ranking = @movie.rankings.build(user_id: current_user.id) #????
-
+     
     end
 
     def update

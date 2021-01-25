@@ -1,12 +1,11 @@
 class RankingsController < ApplicationController
-    # ranking belongs to movie
     include RankingsHelper
     
     def index
-        if params[:movie_id] #nested
+        if params[:movie_id]
             @movie = Movie.find_by_id(params[:movie_id])
             @rankings = @movie.rankings
-        else #not nested
+        else 
             @rankings = Ranking.all
         end
     end
@@ -45,11 +44,8 @@ class RankingsController < ApplicationController
         redirect_to '/'
     end
 
-    # def edit
-    #     redirect_to ranking_path
-    # end
-    
     private
+    
     def ranking_params
         params.require(:ranking).permit(:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :movie_id, :user_id)
     end

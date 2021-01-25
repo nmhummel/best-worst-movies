@@ -10,6 +10,7 @@
       <li class="nav-item"><%= link_to "View Movies", movies_path, class: "btn btn-outline-success" %></li>
       <li class="nav-item"><%= link_to "Create Movie", new_movie_path, class: "btn btn-outline-success" %></li>
       <li class="nav-item"><%= link_to "#{current_user.username}'s Profile Page", user_path(current_user), class: "btn btn-outline-success" %></li>
+      <li class="nav-item"><%= button_to "Logout", logout_path, class: "btn btn-outline-success", method: 'delete' %></li>
     <% end %>
     <%= form_tag movies_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
         <%= text_field_tag :search %>

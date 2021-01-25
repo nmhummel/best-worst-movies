@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-    # before_action :redirect_if_logged_in, only: [:new, :create]
 
     def omniauth
         user = User.from_omniauth(request.env['omniauth.auth'])
@@ -12,10 +11,6 @@ class SessionsController < ApplicationController
         end
     end
 
-    # def failure
-    #     redirect_to redirect_to user_path(user)
-    # end
-
     def home
         @rando = Movie.find(rand(Movie.count))
     end
@@ -25,9 +20,8 @@ class SessionsController < ApplicationController
     end
 
     def create
-        #byebug
+
         user = User.find_by_username(params[:user][:username])
-        # return head(:forbidden) unless user.authenticate(user_params[:password])  # read up on
         if user && user.try(:authenticate, params[:user][:password])
             session[:user_id] = user.id
             redirect_to user_path(user)

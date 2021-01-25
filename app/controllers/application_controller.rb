@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
 
     def handle_record_not_found
-        # Send it to the view that is specific for Post not found
         return render '/rescue/not_found'
     end
 
