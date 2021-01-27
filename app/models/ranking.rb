@@ -2,7 +2,7 @@ class Ranking < ApplicationRecord
     belongs_to :movie
     belongs_to :user
     validates :editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5, message: ": please choose between 1-5"}
-    validates :watch_again, :comments, presence: true
+    validates :comments, presence: true
     validates :movie, uniqueness: { scope: :user, message: "has already been ranked by you." }
     before_save :overall_average
     scope :avg_editing, -> {self.average(:editing).round(1)}

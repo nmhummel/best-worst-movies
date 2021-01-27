@@ -1,18 +1,17 @@
-<p class="list-group-item ranking-item">
-    <b><h3>All Rankings for <i><%= @movie.title %></i></h3></b>
-    <% @rankings.each do |rank| %>
-      <b>Username:</b> <%= rank.user.username %> <br>
-      <b>OVERALL SCORE:</b> <%= rank.overall_average.round(1) %><br>
-      <b>Editing:</b> <%= rank.editing %><br>
-      <b>Cinematography:</b> <%= rank.cinematography %><br>
-      <b>Acting:</b> <%= rank.acting %><br>
-      <b>Special Effects:</b> <%= rank.special_effects %><br>
-      <b>Sound:</b> <%= rank.sound %><br>
-      <b>Plot:</b> <%= rank.plot %><br>
-      <b>Effort:</b> <%= rank.effort %><br>
-      <b>Would watch it again:</b> <i><%= rank.watch_again == true ? "Yes...?" : "Heck no!" %></i><br>
-      <b>Thoughts/Additional Rankings:</b><br><i><%= rank.comments.empty? ? "N/A" : rank.comments %></i>
-      <br><br>
-    <% end %>
+
+<b><h3>All Rankings for <i><%= @movie.title %></i></h3></b>
+<% @rankings.each do |rank| %>
+  <b>Username:</b> <%= rank.user.username %> <br>
+  <b>OVERALL SCORE:</b> <%= rank.overall_average.round(1) %><br>
+  <b>Editing:</b> <%= rank.editing %><br>
+  <b>Cinematography:</b> <%= rank.cinematography %><br>
+  <b>Acting:</b> <%= rank.acting %><br>
+  <b>Special Effects:</b> <%= rank.special_effects %><br>
+  <b>Sound:</b> <%= rank.sound %><br>
+  <b>Plot:</b> <%= rank.plot %><br>
+  <b>Effort:</b> <%= rank.effort %><br>
+  <b>Would watch it again:</b> <i><%= rank.watch_again == true ? "Yes...?" : "Heck no!" %></i><br>
+  <b>Thoughts/Additional Rankings:</b><br><i><%= rank.comments.empty? ? "N/A" : rank.comments %></i>
+  <br><br>
+<% end %>
     
-</p>

@@ -17,7 +17,7 @@ module ApplicationHelper
     end
 
     def authorized_movie?
-        logged_in? && (is_admin? || @movie.user_id == current_user)
+        is_admin? || @movie.user_id == current_user
     end
 
 end

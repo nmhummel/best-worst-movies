@@ -1,20 +1,16 @@
-
-  
-  <p class="card">
-    == AVERAGE SCORES FOR EACH CATEGORY == <br>
-    <font size ="2">(Currently ranked by <%= rank.ids.count %> users)</font>
-    <br>
-      <b>The Average of All Averages: <> <br></b>
-      <b>Editing:</b> <%= rank.avg_editing %> <br>
-      <b>Cinematography:</b> <%= rank.avg_cinematography %><br>
-      <b>Acting:</b> <%= rank.avg_acting %><br>
-      <b>Special Effects:</b> <%= rank.avg_special_effects %><br>
-      <b>Sound:</b> <%= rank.avg_sound %><br>
-      <b>Plot:</b> <%= rank.avg_plot %><br>
-      <b>Effort:</b> <%= rank.avg_effort %><br>
-      <b>Percentage of people who would watch it again: <%= rewatch_percent %>% <br></b>
-  </p>
+  == AVERAGE SCORES FOR EACH CATEGORY == <br>
+  <font size ="2">(Currently ranked by <%= rank.ids.count %> users)</font>
   <br>
+    <b>The Average of All Averages: <%= rank.avg_average %> <br></b>
+    <b>Editing:</b> <%= rank.avg_editing %> <br>
+    <b>Cinematography:</b> <%= rank.avg_cinematography %><br>
+    <b>Acting:</b> <%= rank.avg_acting %><br>
+    <b>Special Effects:</b> <%= rank.avg_special_effects %><br>
+    <b>Sound:</b> <%= rank.avg_sound %><br>
+    <b>Plot:</b> <%= rank.avg_plot %><br>
+    <b>Effort:</b> <%= rank.avg_effort %><br>
+    <b>Percentage of people who would watch it again: <%= rewatch_percent %>% <br></b>
+<br>
 
 
 

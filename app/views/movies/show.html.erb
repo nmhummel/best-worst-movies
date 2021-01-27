@@ -12,7 +12,7 @@
     <b>Created by:</b> <%= @movie.user.username %>  <br>
     <% if authorized_movie? %>
       <%= link_to "Edit Movie", edit_movie_path(@movie) %> <br>
-      <%= button_to "Delete Movie", movie_path, class: "btn btn-success", method: 'delete' %></td>
+      <%= button_to "Delete Movie", movie_path, class: "btn btn-outline-success", method: 'delete' %></td>
       <%end%>
     <%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %>
   </div>
@@ -21,8 +21,10 @@
     <% if @movie.rankings.empty? %>
         <h3>No rankings just yet; would you like to add the first?</h3> 
     <% else %>
-      <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %>
-      <br>
+      <%= render partial: "rankings/show", locals: {rank: @movie.rankings} %><br>
+  </div>
+
+  <div class ="box3">
       <%= render partial: "rankings/index", locals: {rank: @movie.rankings} %>
     <% end %>
   </div>

@@ -8,9 +8,9 @@ module MoviesHelper
 
     def poster?
       if @movie.poster.attached?
-        image_tag url_for(@movie.poster.variant(resize: "150x300").processed.service_url)
+        image_tag url_for(@movie.poster)
       else
-        image_tag("stinky-cheese.png", :size => '150x200')
+        image_tag("stinky-cheese.png")
       end
     end
 
