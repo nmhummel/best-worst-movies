@@ -4092,7 +4092,7 @@ input[type="button"].btn-block {
   text-justify: auto;
 }
 
-.box1, .box2, .box3{
+.box1, .box2, .box3, .ubox1{
   max-width: 400px;
   display: flex;
   flex-direction: column;
@@ -4110,6 +4110,11 @@ input[type="button"].btn-block {
 .box1 img{
   width: 200px;
   height: 300px;
+  align-content: center;
+}
+
+.ubox1 img{
+  width: 150px;
   align-content: center;
 }
 
@@ -4151,8 +4156,8 @@ input[type="button"].btn-block {
     border-bottom-left-radius: 6px; }
 
 .user-card-img {
-  width: 75;
-  height: 75;
+  width: 150;
+  height: 150;
   border-radius: calc(6px - 1px); }
 
 .card-body {

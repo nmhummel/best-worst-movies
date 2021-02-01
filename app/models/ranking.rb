@@ -12,20 +12,21 @@ class Ranking < ApplicationRecord
     scope :avg_sound, -> {self.average(:sound).round(1)}
     scope :avg_plot, -> {self.average(:plot).round(1)}
     scope :avg_effort, -> {self.average(:effort).round(1)}
-    scope :avg_average, -> {self.average(:average).round(1)}
+    # scope :avg_average, -> {self.average(:average).round(1)} rankings/_show page
  
     
     def overall_average
-        #this takes overall score for the 7 categories
+        # this takes overall score for the 7 categories - wrorks on rankings/_index.html.erb
         numbers = self.attributes.reject{|k,v| v.class != Integer || k.include?("id") || k == "average"}
         self.average = numbers.values.sum.to_f / 7       
     end
  
     def average_average
+        # takes the average of all average scores - NOT working on rankings/_show.html.erb
         if current_movie.rankings.avg_average.nil?
             "Not enough data to compute."
         else 
-            current_movie.rankings.avg_average.round(2)
+            current_movie.rankings.avg_average.round(1)
         end
     end
 
