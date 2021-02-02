@@ -8,5 +8,4 @@ class ApplicationController < ActionController::Base
         return render '/rescue/not_found'
     end
 
-
 end

@@ -9,15 +9,13 @@ module ApplicationHelper
     end
 
     def is_admin?
-        current_user.admin == true
+        current_user.admin == true if current_user
     end
 
     def redirect_if_not_logged_in
         redirect_to '/login' if !logged_in?
     end
 
-    def authorized_movie?
-        is_admin? || @movie.user_id == current_user
-    end
+
 
 end

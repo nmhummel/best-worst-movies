@@ -11,16 +11,15 @@ class SessionsController < ApplicationController
         end
     end
 
-    def home
-        @rando = Movie.find(rand(Movie.count))
-    end
+    # def home
+        
+    # end
 
     def new
         @user = User.new
     end
 
     def create
-
         user = User.find_by_username(params[:user][:username])
         if user && user.try(:authenticate, params[:user][:password])
             session[:user_id] = user.id

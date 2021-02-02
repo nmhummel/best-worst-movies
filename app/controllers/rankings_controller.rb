@@ -1,9 +1,9 @@
 class RankingsController < ApplicationController
     include RankingsHelper
+    before_action :set_movie, only: [:index, :new, :create]
     
     def index
         if params[:movie_id]
-            @movie = Movie.find_by_id(params[:movie_id])
             @rankings = @movie.rankings
         else 
             @rankings = Ranking.all
@@ -12,7 +12,7 @@ class RankingsController < ApplicationController
 
     def new
         if current_user 
-            if @movie = Movie.find_by_id(params[:movie_id])
+            if @movie
                 @ranking = @movie.rankings.build
             else
                 @ranking = Ranking.new
@@ -23,7 +23,6 @@ class RankingsController < ApplicationController
     end
 
     def create
-        @movie = Movie.find_by_id(params[:movie_id])
         @ranking = current_user.rankings.build(ranking_params)
         if @ranking.save
             redirect_to movie_path(@movie)
@@ -49,5 +48,8 @@ class RankingsController < ApplicationController
         params.require(:ranking).permit(:editing, :cinematography, :acting, :special_effects, :sound, :plot, :effort, :watch_again, :comments, :movie_id, :user_id)
     end
 
+    def set_movie
+        @movie = Movie.find_by_id(params[:movie_id])
+    end
 
 end

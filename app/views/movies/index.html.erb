@@ -10,10 +10,13 @@
       <i>the worst a movie is in a category, the higher you rank it.</i> </p>
       <h4>Movie Population: <%= Movie.count %><br>
       Contributing Residents: <%= User.count %></h4>
+      <%= form_tag(movies_path, method: 'get') do %>
+         <%= submit_tag "Top 10 Schlock Flops", class: "btn btn-success" %>
+      <% end %>
       </td>
    </tr>
 </table>
-<br><br>
+<br>
 
 <center><%= cu_header %><center><br><br>
 

@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
     has_one_attached :poster  
     validates :title, presence: true, uniqueness: { message: "%{value} is already in the database."}
     scope :search_by_name, -> (search) { where("title LIKE ?", "%#{search}%")}
-    scope :order_by_average, -> {Movie.left_joins(:rankings).group(:id).order('avg(average) desc')}
+    scope :top_ten, -> {Movie.left_joins(:rankings).group(:id).order('avg(average) desc').limit(10)}
     
     def self.abc
         order(title: :asc).includes([poster_attachment: :blob])

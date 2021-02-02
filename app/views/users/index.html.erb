@@ -16,7 +16,10 @@
             <%= mail_to u.email, "(Admin)" %>
           <% end %>
         <br>
-        <b>Favorite Schlock Flop:</b> <i><%= u.best_worst_movie %></i><br><br>
+        <b>Favorite Schlock Flop:</b> <i><%= u.best_worst_movie %></i><br>
+        User has ranked <b><%= u.rankings.length %></b> flops.<br>
+        <br>
+
         <%= link_to "View User's Page", user_path(u)%>
         </div>
     <% end %>

@@ -22,6 +22,14 @@ module MoviesHelper
       true_count = @movie.rankings.where(watch_again: true).count.to_f
       total_count = @movie.rankings.count.to_f
       percentage = (true_count / total_count).round(2)*100
-  end
+    end
+
+    def authorized_movie?
+      is_admin? || @movie.user_id == current_user.id if current_user
+    end
+
+    def has_ranked?
+      @movie.rankings.where(user_id: current_user.id).exists? if current_user
+    end
 
 end

@@ -13,8 +13,10 @@
     <% if authorized_movie? %>
       <%= link_to "Edit Movie", edit_movie_path(@movie) %> <br>
       <%= button_to "Delete Movie", movie_path, class: "btn btn-outline-success", method: 'delete' %></td>
-      <%end%>
-    <%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %>
+    <%end%>
+    <% if !has_ranked? %>
+      <%= link_to "Rank this Flop", new_movie_ranking_path(@movie) %>
+    <% end %>
   </div>
     
   </div class="box2">
