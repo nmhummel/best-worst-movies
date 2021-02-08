@@ -179,6 +179,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     open-uri (0.1.0)
+    pg (1.2.3)
     public_suffix (4.0.6)
     puma (5.1.1)
       nio4r (~> 2.0)
@@ -259,7 +260,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.0.1)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -311,6 +311,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   open-uri
+  pg
   puma (~> 5.0)
   rails (~> 6.1.0)
   roo
@@ -318,7 +319,6 @@ DEPENDENCIES
   searchkick
   selenium-webdriver
   spring
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
