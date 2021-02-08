@@ -5,3 +5,5 @@ require_relative "application"
 Rails.application.initialize!
 
 #config.active_storage.service = :local
+
+set :database_file, "./database.yml"
