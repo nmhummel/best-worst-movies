@@ -6,4 +6,4 @@ Rails.application.initialize!
 
 #config.active_storage.service = :local
 
-set :database_file, "./database.yml"
+#set :database_file, "./database.yml"
