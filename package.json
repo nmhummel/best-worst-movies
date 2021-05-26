@@ -5,7 +5,7 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.2.1",
+    "@rails/webpacker": "^3.6.0",
     "bootstrap": "4.3.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
@@ -13,7 +13,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack": "^5.31.2",
+    "webpack": "^5.37.1",
     "webpack-dev-server": "^3.11.2"
   }
 }
